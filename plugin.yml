@@ -1,0 +1,73 @@
+name: Keys
+main: erestor_.Main
+version: 2.3
+api-version: 1.13
+commands:
+    craft:
+     description: Opens a crafting table!
+     usage: /<command>
+    c:
+     description: Opens a crafting table!
+     usage: /<command>
+    crafting:
+     description: Opens a crafting table!
+     usage: /<command>
+    smelt:
+     description: Opens a furnace!
+     usage: /<command>
+    s:
+     description: Opens a furnace!
+     usage: /<command>
+    furnace:
+     description: Opens a furnace!
+     usage: /<command>
+    bed:
+     description: Teleports you to your bed!
+     usage: /<command>
+    bedtp:
+     description: Teleports you to your bed!
+     usage: /<command>
+    b:
+     description: Teleports you to your bed!
+     usage: /<command>
+    reset:
+     description: Resets your player info.
+     usage: /<command>
+    getTaskState:
+     description: Tells of unfinished tasks (for admin use).
+     usage: /<command>
+    forceRemoveGhostTorches:
+     description: Removes ghost torches(for admin use).
+     usage: /<command>
+    forceEndTasks:
+     description: Ends all tasks(for admin use).
+     usage: /<command>
+    getGTLoc:
+     description: Gets the location of ghost torches (for admin use).
+     usage: /<command>
+    getJailedPlayers:
+     description: Lists jailed players.
+     usage: /<command>
+    jail:
+     description: Jails specified player.
+     usage: /<command>
+    unjail:
+     description: Unjails specified player.
+     usage: /<command>
+    contain:
+     description: Contains specified player.
+     usage: /<command>
+    release:
+     description: Releases specified player.
+     usage: /<command>
+    releaseAll:
+     description: Releases all contained players.
+     usage: /<command>
+
+
+
+
+
+
+
+
