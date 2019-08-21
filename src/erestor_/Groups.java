@@ -50,7 +50,7 @@ public class Groups {
     	eastcliffGladiators.setCanSeeFriendlyInvisibles(true);
     }
     
-    @SuppressWarnings("deprecation")
+    
 	public static void removePlayerFromTeams(Player p) {
     	 guardiansOfAncra.removePlayer(p);
 		 leagueOfHunters.removePlayer(p);
@@ -59,10 +59,9 @@ public class Groups {
 		 eastcliffGladiators.removePlayer(p);
     }
     
-	@SuppressWarnings("deprecation")
 	public static void groups(Player p, Block b, Action a) {
 		if (a == Action.RIGHT_CLICK_BLOCK) {
-	        if (b.getType() == Material.WALL_SIGN) {
+	        if (b.getType() == Material.OAK_WALL_SIGN) {
 	          Sign s = (Sign) b.getState();
 	          if (s.getLine(0).equalsIgnoreCase("[Group]")) {
 	        	  // Guardians
@@ -137,7 +136,6 @@ public class Groups {
 		}
 	}
 	
-	@SuppressWarnings("deprecation")
 	public static void groupBonuses(Entity a, Entity d, EntityDamageByEntityEvent e) {
 		if(a instanceof Player && d instanceof Player) {
 			

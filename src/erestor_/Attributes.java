@@ -2,21 +2,21 @@ package erestor_;
 
 import java.util.Random;
 
-import net.minecraft.server.v1_13_R2.NBTTagCompound;
-import net.minecraft.server.v1_13_R2.NBTTagDouble;
-import net.minecraft.server.v1_13_R2.NBTTagList;
-import net.minecraft.server.v1_13_R2.NBTTagLong;
-import net.minecraft.server.v1_13_R2.NBTTagString;
-import net.minecraft.server.v1_13_R2.NBTTagByte;
+import net.minecraft.server.v1_14_R1.NBTTagCompound;
+import net.minecraft.server.v1_14_R1.NBTTagDouble;
+import net.minecraft.server.v1_14_R1.NBTTagList;
+import net.minecraft.server.v1_14_R1.NBTTagLong;
+import net.minecraft.server.v1_14_R1.NBTTagString;
+import net.minecraft.server.v1_14_R1.NBTTagByte;
 
-import org.bukkit.craftbukkit.v1_13_R2.inventory.CraftItemStack;
+import org.bukkit.craftbukkit.v1_14_R1.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 public class Attributes {
 
 		//setAttribute
 			static ItemStack setAttribute(ItemStack itemStack, String attributeName, double value, String slot) {
-				net.minecraft.server.v1_13_R2.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+				net.minecraft.server.v1_14_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 				
 				NBTTagCompound compound = nmsStack.getTag();
 				if (compound == null) {
@@ -53,7 +53,7 @@ public class Attributes {
 			
 		//setBreakableAttribute
 			static ItemStack setBreakableAttribute(ItemStack itemStack, String attributeName, double value, String slot) {
-				net.minecraft.server.v1_13_R2.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
+				net.minecraft.server.v1_14_R1.ItemStack nmsStack = CraftItemStack.asNMSCopy(itemStack);
 				
 				NBTTagCompound compound = nmsStack.getTag();
 				if (compound == null) {

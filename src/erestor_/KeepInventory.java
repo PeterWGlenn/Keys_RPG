@@ -3,7 +3,6 @@ package erestor_;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
@@ -56,7 +55,7 @@ public class KeepInventory {
 			int playerLevel = p.getLevel();
 			int lostLevels = (int) (playerLevel * 0.25);
 			
-			ItemStack BagOfLostCoins = Items.createGoldBagItem(Material.INK_SAC, "" + lostLevels);
+			ItemStack BagOfLostCoins = Items.createGoldBagItem("" + lostLevels);
 			p.getWorld().dropItem(p.getLocation(), BagOfLostCoins);
 			
 			p.sendMessage(ChatColor.RED + "-" + lostLevels + ChatColor.RED + " coins");

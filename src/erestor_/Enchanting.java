@@ -114,7 +114,6 @@ public class Enchanting {
 	}
 	
 	// Enchant Method
-	@SuppressWarnings("deprecation")
 	public static void EnchantMethod(Player p) {
 		
 		PlayerInventory inv = p.getInventory();
@@ -185,8 +184,8 @@ public class Enchanting {
 	public static void openEnInv(Player p){
 		EnInv = Bukkit.createInventory(null, 9, ChatColor.DARK_PURPLE + "Enchant your held item?"); 
 				
-		EnInv.setItem(2, Items.createChoiceItem(ChatColor.GREEN + "Yes", (short) 5));
-		EnInv.setItem(6, Items.createChoiceItem(ChatColor.RED + "No", (short) 14));
+		EnInv.setItem(2, Items.createChoiceItem(ChatColor.GREEN + "Yes", Material.LIME_WOOL));
+		EnInv.setItem(6, Items.createChoiceItem(ChatColor.RED + "No", Material.RED_WOOL));
 
 		p.openInventory(EnInv);	    
 	}
@@ -194,7 +193,7 @@ public class Enchanting {
 	// Enchantment Inventory Click Detector 
 	public static void EnchantInvClickHandler(Player p, InventoryClickEvent e) {
 
-		if(e.getInventory().getName().contains("Enchant your held item?") && !e.getCurrentItem().getType().equals(Material.AIR)) {
+		if(e.getView().getTitle().contains("Enchant your held item?") && !e.getCurrentItem().getType().equals(Material.AIR)) {
 	    if(e.getCurrentItem().getItemMeta().getDisplayName() != null) {
 		if(e.getCurrentItem().getItemMeta().getDisplayName().contains("Yes")) {
 			

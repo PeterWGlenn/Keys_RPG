@@ -12,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityInteractEvent;
+import org.bukkit.event.entity.EntityPickupItemEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType.SlotType;
@@ -22,12 +23,10 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.world.ChunkLoadEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.event.entity.EntityDeathEvent;
 
-@SuppressWarnings("deprecation")
 public class Events implements Listener {
 	
 	@EventHandler
@@ -59,7 +58,6 @@ public class Events implements Listener {
 	Set<Material> hashSet = new HashSet<Material>();
 	hashSet.add(Material.AIR);
 	hashSet.add(Material.WATER);
-	hashSet.add(Material.LEGACY_STATIONARY_WATER);
 		
 	PlayerAnimationType a = e.getAnimationType();
     Player p = e.getPlayer();
@@ -161,10 +159,11 @@ public class Events implements Listener {
 	}
 
 	@EventHandler 
-    public void itemPickupEvent(PlayerPickupItemEvent e){
-	Player p = e.getPlayer();
-		
-	PlayerManager.goldConverter(p);
+    public void itemPickupEvent(EntityPickupItemEvent e){
+	
+		if(e.getEntity() instanceof Player) {
+			PlayerManager.goldConverter((Player) e.getEntity());
+		}
 	}
 
 	@EventHandler

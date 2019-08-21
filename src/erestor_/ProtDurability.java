@@ -8,8 +8,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
+import org.bukkit.inventory.meta.ItemMeta;
 
-@SuppressWarnings("deprecation")
 public class ProtDurability {
 	
 	//protDurability
@@ -20,9 +21,21 @@ public class ProtDurability {
 		
 		if(!item.getType().equals(Material.AIR) && item.getItemMeta().hasDisplayName()) {
 		String itemName = item.getItemMeta().getDisplayName();
-		if(itemName.contains("Mithril") && (itemName.contains("Pickaxe") || itemName.contains("Sword") || itemName.contains("Knife") || itemName.contains("Battleaxe"))) {item.setDurability((short) Val.mithrilDur);}
-		if(itemName.contains("Adamantite") && (itemName.contains("Pickaxe") || itemName.contains("Sword") || itemName.contains("Knife") || itemName.contains("Battleaxe"))) {item.setDurability((short) Val.adamDur);}
-		if(itemName.contains("Void") && (itemName.contains("Pickaxe") || itemName.contains("Sword") || itemName.contains("Knife") || itemName.contains("Battleaxe"))) {item.setDurability((short) Val.voidDur);}
+		if(itemName.contains("Mithril") && (itemName.contains("Pickaxe") || itemName.contains("Sword") || itemName.contains("Knife") || itemName.contains("Battleaxe"))) {
+			ItemMeta newMeta = (ItemMeta) item.getItemMeta();
+			((Damageable) newMeta).setDamage(Val.mithrilDur);
+			item.setItemMeta(newMeta);
+		}
+		if(itemName.contains("Adamantite") && (itemName.contains("Pickaxe") || itemName.contains("Sword") || itemName.contains("Knife") || itemName.contains("Battleaxe"))) {
+			ItemMeta newMeta = (ItemMeta) item.getItemMeta();
+			((Damageable) newMeta).setDamage(Val.adamDur);
+			item.setItemMeta(newMeta);
+		}
+		if(itemName.contains("Void") && (itemName.contains("Pickaxe") || itemName.contains("Sword") || itemName.contains("Knife") || itemName.contains("Battleaxe"))) {
+			ItemMeta newMeta = (ItemMeta) item.getItemMeta();
+			((Damageable) newMeta).setDamage(Val.voidDur);
+			item.setItemMeta(newMeta);
+		}
 		}
 		}	
 	}
@@ -33,7 +46,7 @@ public class ProtDurability {
 		// Right Clicks
 		if(event.getPlayer().getGameMode().equals(GameMode.ADVENTURE) && event.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 		Material m = event.getClickedBlock().getType();
-		if(m.equals(Material.BREWING_STAND) || m.equals(Material.ANVIL) || m.equals(Material.CHEST) || m.equals(Material.OAK_DOOR) ||
+		if(m.equals(Material.BREWING_STAND) || m.equals(Material.ANVIL) || m.equals(Material.CHEST) || m.equals(Material.OAK_TRAPDOOR) ||
 				m.equals(Material.OAK_FENCE_GATE) || m.equals(Material.ACACIA_FENCE_GATE) || m.equals(Material.BIRCH_FENCE_GATE) || m.equals(Material.SPRUCE_FENCE_GATE) || 
 				m.equals(Material.DARK_OAK_FENCE_GATE) || m.equals(Material.JUNGLE_FENCE_GATE) 
 				|| m.equals(Material.LEVER) || m.equals(Material.BEACON) || m.equals(Material.ITEM_FRAME)) {

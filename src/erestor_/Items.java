@@ -18,14 +18,14 @@ import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.inventory.meta.Damageable;
 
-@SuppressWarnings("deprecation")
 public class Items {
 
 	///////////////////////////////////////////////// I T E M   C R E A T I O N /////////////////////////////////////////////////////////////
 	// CreateItem
-		public static ItemStack createItem(Material m, String name, String Lore, int sellPrice, int Amount, short dataValue) {
-			ItemStack i = new ItemStack(m, Amount, (short) dataValue);
+		public static ItemStack createItem(Material m, String name, String Lore, int sellPrice, int Amount) {
+			ItemStack i = new ItemStack(m, Amount);
 			ItemMeta iMeta = i.getItemMeta();
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Sell Price: " + ChatColor.GOLD + ChatColor.BOLD + sellPrice)); 
@@ -34,9 +34,10 @@ public class Items {
 		}
 		
 	// CreateBowItem
-		public static ItemStack createBowItem(int power, int flame, int punch, String name, String Lore, short dataValue, int sellPrice) {
-			ItemStack i = new ItemStack(Material.BOW, 1, (short) dataValue);
+		public static ItemStack createBowItem(int power, int flame, int punch, String name, String Lore, int durability, int sellPrice) {
+			ItemStack i = new ItemStack(Material.BOW, 1);
 			ItemMeta iMeta = i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Sell Price: " + ChatColor.GOLD + ChatColor.BOLD + sellPrice)); 
 			i.setItemMeta(iMeta);
@@ -47,8 +48,8 @@ public class Items {
 		}
 		
 	// CreateGoldBagItem
-		public static ItemStack createGoldBagItem(Material m, String name) {
-			ItemStack i = new ItemStack(m, 1, (short) 12);
+		public static ItemStack createGoldBagItem(String name) {
+			ItemStack i = new ItemStack(Material.LIGHT_BLUE_DYE, 1);
 			ItemMeta iMeta = i.getItemMeta();
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList(ChatColor.GRAY + "Bag of Coins [Right Click to Redeem!]")); 
@@ -90,7 +91,7 @@ public class Items {
 		
 	// CreateGroupItem
 		public static ItemStack createGroupItem(String name, ChatColor color, String bonus, String worksAgainst) {
-			ItemStack i = new ItemStack(Material.PAPER, 1, (short) 0);
+			ItemStack i = new ItemStack(Material.PAPER, 1);
 			ItemMeta iMeta = i.getItemMeta();
 			iMeta.setDisplayName(ChatColor.GRAY + "Group: " + color + name); 
 			iMeta.setLore(Arrays.asList(ChatColor.RESET + "" + ChatColor.GRAY + "Group Bonus: " + color + bonus, ChatColor.RESET + "" + ChatColor.GRAY + "Works Against: " + color + worksAgainst));
@@ -100,7 +101,7 @@ public class Items {
 		
 	// CreateManaItem
 		public static ItemStack createManaItem(String amount) {
-			ItemStack i = new ItemStack(Material.INK_SAC, 1, (short) 14);
+			ItemStack i = new ItemStack(Material.ORANGE_DYE, 1);
 			ItemMeta iMeta = i.getItemMeta();
 			iMeta.setDisplayName(amount); 
 			iMeta.setLore(Arrays.asList(ChatColor.RESET + "" + ChatColor.DARK_PURPLE + "Mana", ChatColor.RESET + "" + ChatColor.GRAY + "Used to fuel magical abilities.", ChatColor.RESET + "" + ChatColor.GRAY + "Attack enemies to charge your Mana!"));
@@ -110,7 +111,7 @@ public class Items {
 		
 	// CreateAbilityItem
 		public static ItemStack createAbilityItem(String name) {
-			ItemStack i = new ItemStack(Material.BOOK, 1, (short) 0);
+			ItemStack i = new ItemStack(Material.BOOK, 1);
 			ItemMeta iMeta = i.getItemMeta();
 			iMeta.setDisplayName(ChatColor.GOLD + "Ability: " + ChatColor.RESET + name); 
 			iMeta.setLore(Arrays.asList(ChatColor.GRAY + "Right click with a weapon", ChatColor.GRAY + "in your offhand to use!", ChatColor.GRAY + "The better the weapon, the", ChatColor.GRAY + "better your ability!"));
@@ -120,7 +121,7 @@ public class Items {
 		
 		// CreateAbilityTopicItem
 		public static ItemStack createAbilityTopicItem(Material m, String name, String lore) {
-			ItemStack i = new ItemStack(m, 1, (short) 0);
+			ItemStack i = new ItemStack(m, 1);
 			ItemMeta iMeta = i.getItemMeta();
 			iMeta.setDisplayName(ChatColor.RESET + name); 
 			iMeta.setLore(Arrays.asList(ChatColor.RESET + lore));
@@ -130,7 +131,7 @@ public class Items {
 		
 	// CreateShopAbilityItem
 		public static ItemStack createShopAbilityItem(String name, String Lore1, String Lore2, int buyPrice) {
-			ItemStack i = new ItemStack(Material.BOOK, 1, (short) 0);
+			ItemStack i = new ItemStack(Material.BOOK, 1);
 			ItemMeta iMeta = i.getItemMeta();
 			iMeta.setDisplayName(ChatColor.GOLD + "Ability: " + ChatColor.RESET + name); 
 			iMeta.setLore(Arrays.asList("" + ChatColor.GRAY + Lore1, "" + ChatColor.GRAY + Lore2, "" + ChatColor.RESET + ChatColor.GRAY + "Train Price: " + ChatColor.GOLD + ChatColor.BOLD + buyPrice)); 
@@ -140,7 +141,7 @@ public class Items {
 		
 	// CreateArenaItem
 		public static ItemStack createArenaItem(String name, String difficulty, String reward, int fightPrice) {
-			ItemStack i = new ItemStack(Material.PAPER, 1, (short) 0);
+			ItemStack i = new ItemStack(Material.PAPER, 1);
 			ItemMeta iMeta = i.getItemMeta();
 			iMeta.setDisplayName(ChatColor.RED + "Fight Chamption: " + ChatColor.DARK_RED + name); 
 			iMeta.setLore(Arrays.asList("" + ChatColor.RESET + ChatColor.WHITE + "Difficulty: " + ChatColor.RED + difficulty, "" + ChatColor.RESET + ChatColor.WHITE + "Reward: " + ChatColor.GREEN + reward, "" + ChatColor.RESET + ChatColor.WHITE + "Fight Price: " + ChatColor.GOLD + ChatColor.BOLD + fightPrice)); 
@@ -149,9 +150,10 @@ public class Items {
 		}
 		
 	// CreateShopItem
-		public static ItemStack createShopItem(Material m, String name, String Lore, int buyPrice, int Amount, short dataValue) {
-			ItemStack i = new ItemStack(m, Amount, (short) dataValue);
+		public static ItemStack createShopItem(Material m, String name, String Lore, int buyPrice, int Amount, int durability) {
+			ItemStack i = new ItemStack(m, Amount);
 			ItemMeta iMeta = i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Buy Price: " + ChatColor.GOLD + ChatColor.BOLD + buyPrice)); 
 			i.setItemMeta(iMeta);
@@ -159,9 +161,10 @@ public class Items {
 		}
 		
 	// CreateShopGemItem
-		public static ItemStack createShopGemItem(Material m, String name, String Lore, int AmountE, int AmountR, int AmountS, short dataValue) {
-			ItemStack i = new ItemStack(m, 1, (short) dataValue);
+		public static ItemStack createShopGemItem(Material m, String name, String Lore, int AmountE, int AmountR, int AmountS, int durability) {
+			ItemStack i = new ItemStack(m, 1);
 			ItemMeta iMeta = i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Items Needed: ", 
 					"" + ChatColor.GRAY + "Emeralds: " + ChatColor.GREEN + AmountE, 
@@ -172,9 +175,10 @@ public class Items {
 		}
 		
 	// CreateShopTradeItem
-		public static ItemStack createShopTradeItem(Material m, String name, String Lore, int Amount, short dataValue, ItemStack buyItem) {
-			ItemStack i = new ItemStack(m, 1, (short) dataValue);
+		public static ItemStack createShopTradeItem(Material m, String name, String Lore, int Amount, int durability, ItemStack buyItem) {
+			ItemStack i = new ItemStack(m, 1);
 			ItemMeta iMeta = i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Items Needed: ", 
 					"" + ChatColor.GRAY + buyItem.getItemMeta().getDisplayName() + ": " + ChatColor.GREEN + Amount));
@@ -183,9 +187,10 @@ public class Items {
 		}
 		
 	// CreateShopWeapon
-		public static ItemStack createShopWeapon(Material m, String name, String Lore, int buyPrice, int dataValue, double damage, double attackSpeed) {
-			ItemStack i = new ItemStack(m, 1, (short) dataValue);
+		public static ItemStack createShopWeapon(Material m, String name, String Lore, int buyPrice, int durability, double damage, double attackSpeed) {
+			ItemStack i = new ItemStack(m, 1);
 			ItemMeta iMeta = i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Buy Price: " + ChatColor.GOLD + ChatColor.BOLD + buyPrice));  
 			i.setItemMeta(iMeta);
@@ -194,9 +199,10 @@ public class Items {
 		}
 		
 	// CreateShopArmor
-		public static ItemStack createShopArmor(Material m, String name, String Lore, int buyPrice, int dataValue, double armorValue, double armorToughness, String slot) {
-			ItemStack i = new ItemStack(m, 1, (short) dataValue);
+		public static ItemStack createShopArmor(Material m, String name, String Lore, int buyPrice, int durability, double armorValue, double armorToughness, String slot) {
+			ItemStack i = new ItemStack(m, 1);
 			ItemMeta iMeta = i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Buy Price: " + ChatColor.GOLD + ChatColor.BOLD + buyPrice)); 
 			i.setItemMeta(iMeta);
@@ -205,10 +211,11 @@ public class Items {
 		}
 		
 	// CreateShopShield
-		public static ItemStack createShopShield(DyeColor color, String name, String Lore, int buyPrice, int dataValue, double armorValue, double armorToughness, String slot) {
-			ItemStack i = new ItemStack(Material.SHIELD, 1, (short) dataValue);
+		public static ItemStack createShopShield(DyeColor color, String name, String Lore, int buyPrice, int durability, double armorValue, double armorToughness, String slot) {
+			ItemStack i = new ItemStack(Material.SHIELD, 1);
 			
 			ItemMeta meta = i.getItemMeta();
+			((Damageable) meta).setDamage(durability);
             BlockStateMeta bmeta = (BlockStateMeta) meta;
             Banner banner = (Banner) bmeta.getBlockState();
             banner.setBaseColor(color);
@@ -227,8 +234,8 @@ public class Items {
 		}
 		
 		// CreateChoiceItem
-		public static ItemStack createChoiceItem(String name, short woolColor) {
-			ItemStack i = new ItemStack(Material.LEGACY_WOOL, 1, (short) woolColor);
+		public static ItemStack createChoiceItem(String name, Material wool) {
+			ItemStack i = new ItemStack(wool, 1);
 			
 			ItemMeta iMeta = i.getItemMeta();
 			iMeta.setDisplayName("" + ChatColor.RESET + name); 
@@ -237,9 +244,10 @@ public class Items {
 		}
 		
 		// CreateBreakableWeapon
-		public static ItemStack createShopBreakableWeapon(Material m, String name, String Lore, int buyPrice, int dataValue, double damage, double attackSpeed) {
-			ItemStack i = new ItemStack(m, 1, (short) dataValue);
+		public static ItemStack createShopBreakableWeapon(Material m, String name, String Lore, int buyPrice, int durability, double damage, double attackSpeed) {
+			ItemStack i = new ItemStack(m, 1);
 			ItemMeta iMeta = i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Buy Price: " + ChatColor.GOLD + ChatColor.BOLD + buyPrice)); 
 			i.setItemMeta(iMeta);
@@ -248,9 +256,10 @@ public class Items {
 		}
 		
 	// CreateLeatherArmor
-		public static ItemStack createShopLeatherArmor(Color color, Material m, String name, String Lore, int buyPrice, int dataValue, double armorValue, double armorToughness, String slot) {
-			ItemStack i = new ItemStack(m, 1, (short) dataValue);
+		public static ItemStack createShopLeatherArmor(Color color, Material m, String name, String Lore, int buyPrice, int durability, double armorValue, double armorToughness, String slot) {
+			ItemStack i = new ItemStack(m, 1);
 			LeatherArmorMeta iMeta = (LeatherArmorMeta) i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setColor(color);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Buy Price: " + ChatColor.GOLD + ChatColor.BOLD + buyPrice)); 
@@ -260,9 +269,10 @@ public class Items {
 		}
 		
 	// CreateWeapon
-		public static ItemStack createWeapon(Material m, String name, String Lore, int sellPrice, int dataValue, double damage, double attackSpeed) {
-			ItemStack i = new ItemStack(m, 1, (short) dataValue);
+		public static ItemStack createWeapon(Material m, String name, String Lore, int sellPrice, int durability, double damage, double attackSpeed) {
+			ItemStack i = new ItemStack(m, 1);
 			ItemMeta iMeta = i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Sell Price: " + ChatColor.GOLD + ChatColor.BOLD + sellPrice));  
 			i.setItemMeta(iMeta);
@@ -271,9 +281,10 @@ public class Items {
 		}
 		
 	// CreateArmor
-		public static ItemStack createArmor(Material m, String name, String Lore, int sellPrice, int dataValue, double armorValue, double armorToughness, String slot) {
-			ItemStack i = new ItemStack(m, 1, (short) dataValue);
+		public static ItemStack createArmor(Material m, String name, String Lore, int sellPrice, int durability, double armorValue, double armorToughness, String slot) {
+			ItemStack i = new ItemStack(m, 1);
 			ItemMeta iMeta = i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Sell Price: " + ChatColor.GOLD + ChatColor.BOLD + sellPrice)); 
 			i.setItemMeta(iMeta);
@@ -282,10 +293,11 @@ public class Items {
 		}
 		
 	// CreateShield
-		public static ItemStack createShield(DyeColor color, String name, String Lore, int sellPrice, int dataValue, double armorValue, double armorToughness, String slot) {
-			ItemStack i = new ItemStack(Material.SHIELD, 1, (short) dataValue);
+		public static ItemStack createShield(DyeColor color, String name, String Lore, int sellPrice, int durability, double armorValue, double armorToughness, String slot) {
+			ItemStack i = new ItemStack(Material.SHIELD, 1);
 			
 			ItemMeta meta = i.getItemMeta();
+			((Damageable) meta).setDamage(durability);
             BlockStateMeta bmeta = (BlockStateMeta) meta;
             Banner banner = (Banner) bmeta.getBlockState();
             banner.setBaseColor(color);
@@ -304,9 +316,10 @@ public class Items {
 		}
 		
 	// CreateBreakableWeapon
-		public static ItemStack createBreakableWeapon(Material m, String name, String Lore, int sellPrice, int dataValue, double damage, double attackSpeed) {
-			ItemStack i = new ItemStack(m, 1, (short) dataValue);
+		public static ItemStack createBreakableWeapon(Material m, String name, String Lore, int sellPrice, int durability, double damage, double attackSpeed) {
+			ItemStack i = new ItemStack(m, 1);
 			ItemMeta iMeta = i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Sell Price: " + ChatColor.GOLD + ChatColor.BOLD + sellPrice));  
 			i.setItemMeta(iMeta);
@@ -315,9 +328,10 @@ public class Items {
 		}
 		
 	// CreateLeatherArmor
-		public static ItemStack createLeatherArmor(Color color, Material m, String name, String Lore, int sellPrice, int dataValue, double armorValue, double armorToughness, String slot) {
-			ItemStack i = new ItemStack(m, 1, (short) dataValue);
+		public static ItemStack createLeatherArmor(Color color, Material m, String name, String Lore, int sellPrice, int durability, double armorValue, double armorToughness, String slot) {
+			ItemStack i = new ItemStack(m, 1);
 			LeatherArmorMeta iMeta = (LeatherArmorMeta) i.getItemMeta();
+			((Damageable) iMeta).setDamage(durability);
 			iMeta.setColor(color);
 			iMeta.setDisplayName("" + name); 
 			iMeta.setLore(Arrays.asList("" + Lore, "" + ChatColor.RESET + ChatColor.GRAY + "Sell Price: " + ChatColor.GOLD + ChatColor.BOLD + sellPrice)); 
@@ -330,12 +344,12 @@ public class Items {
 		
 	// STARTER BOOK
 		public static ItemStack createStarterBook() {
-			ItemStack starterBook = Items.createItem(Material.WRITTEN_BOOK, "" + ChatColor.RESET + "Starter Book", "" + ChatColor.RESET + ChatColor.GRAY + "Contains general information about Keys", 50, 1, (short) 0);
+			ItemStack starterBook = Items.createItem(Material.WRITTEN_BOOK, "" + ChatColor.RESET + "Starter Book", "" + ChatColor.RESET + ChatColor.GRAY + "Contains general information about Keys", 50, 1);
 			BookMeta bookMeta = (BookMeta) starterBook.getItemMeta();
 			bookMeta.setTitle("Starter Book");
 			bookMeta.setAuthor("Bob the Villager");
 			bookMeta.addPage(""
-					+ ChatColor.BLUE + ChatColor.BOLD + "Welcome to " + ChatColor.GOLD + "Keys 2.2" + ChatColor.BLUE + "!"
+					+ ChatColor.BLUE + ChatColor.BOLD + "Welcome to " + ChatColor.GOLD + "Keys 2.4" + ChatColor.BLUE + "!"
 					+ ChatColor.DARK_RED + "\n\nHacking will result in a perm ban!"
 					+ ChatColor.BLACK + "\n\nLearn how to play on the following pages."
 					+ ChatColor.BLUE + ChatColor.BOLD + "\n\nEnjoy!"
@@ -399,11 +413,11 @@ public class Items {
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	//////////////////////////////////////////////////// M I S C //////////////////////////////////////////////////////////////
-	public static ItemStack BronzeCoin = Items.createItem(Material.INK_SAC, ChatColor.RESET + "Bronze Coin", ChatColor.GRAY + "Just a bronze coin.", 1, 1, (short) 8);
-	public static ItemStack SilverCoin = Items.createItem(Material.INK_SAC, ChatColor.RESET + "Silver Coin", ChatColor.GRAY + "Just a silver coin.", 100, 1, (short) 9);
-	public static ItemStack GoldCoin = Items.createItem(Material.INK_SAC, ChatColor.RESET + "Gold Coin", ChatColor.GRAY + "Just a gold coin.", 1000, 1, (short) 10);
-	public static ItemStack PlatinumCoin = Items.createItem(Material.INK_SAC, ChatColor.RESET + "Platinum Coin", ChatColor.GRAY + "Just a platinum coin.", 10000, 1, (short) 11);
-    public static ItemStack air = Items.createItem(Material.IRON_BARS, "", "", 0, 1, (short) 0);
+	public static ItemStack BronzeCoin = Items.createItem(Material.GRAY_DYE, ChatColor.RESET + "Bronze Coin", ChatColor.GRAY + "Just a bronze coin.", 1, 1);
+	public static ItemStack SilverCoin = Items.createItem(Material.PINK_DYE, ChatColor.RESET + "Silver Coin", ChatColor.GRAY + "Just a silver coin.", 100, 1);
+	public static ItemStack GoldCoin = Items.createItem(Material.LIME_DYE, ChatColor.RESET + "Gold Coin", ChatColor.GRAY + "Just a gold coin.", 1000, 1);
+	public static ItemStack PlatinumCoin = Items.createItem(Material.YELLOW_DYE, ChatColor.RESET + "Platinum Coin", ChatColor.GRAY + "Just a platinum coin.", 10000, 1);
+    public static ItemStack air = Items.createItem(Material.IRON_BARS, "", "", 0, 1);
     
     // Abilities
     public static ItemStack abilityAttack = Items.createAbilityTopicItem(Material.IRON_SWORD, "" + ChatColor.RESET + ChatColor.RED + "Offensive Abilities", "Abilities focused around damage.");
@@ -423,76 +437,76 @@ public class Items {
     public static ItemStack leapAbility = Items.createAbilityItem("Leap");
     
     // Misc Trade Items
-    public static ItemStack MassiveDiamond = Items.createItem(Material.DIAMOND, ChatColor.RESET + "Super Massive Diamond", ChatColor.GRAY + "Harold's prized possession.", Val.superMassiveDiamond, 1, (short) 0);
-    public static ItemStack divingHelmet = Items.createArmor(Material.PUMPKIN, ChatColor.RESET + "Diving Helmet", "" + ChatColor.RESET + ChatColor.GRAY + "Allows you to breathe underwater.", Val.divingHelmet, 0, 1, 0, "head");
+    public static ItemStack MassiveDiamond = Items.createItem(Material.DIAMOND, ChatColor.RESET + "Super Massive Diamond", ChatColor.GRAY + "Harold's prized possession.", Val.superMassiveDiamond, 1);
+    public static ItemStack divingHelmet = Items.createArmor(Material.CARVED_PUMPKIN, ChatColor.RESET + "Diving Helmet", "" + ChatColor.RESET + ChatColor.GRAY + "Allows you to breathe underwater.", Val.divingHelmet, 0, 1, 0, "head");
     
     // Arena Items //
     public static ItemStack arenaWarrior = Items.createArenaItem("Eastcliff Warrior", "I", "1500", 100);
     public static ItemStack arenaKnight = Items.createArenaItem("Eastcliff Knight", "II", "5500", 1000);
     
-    public static ItemStack undeadArcherBow = Items.createBowItem(25, 5, 2, ChatColor.RESET + "Undead Archer's Bow", ChatColor.GRAY + "Very powerful!", (short) 0, 5000);
+    public static ItemStack undeadArcherBow = Items.createBowItem(25, 5, 2, ChatColor.RESET + "Undead Archer's Bow", ChatColor.GRAY + "Very powerful!", 5000, 0);
     ////////////////
     
-    public static ItemStack torch = Items.createItem(Material.TORCH, ChatColor.RESET + "Torch", ChatColor.RESET + "" + ChatColor.GRAY + "Right click to place, gives off light.", Val.torch, 1, (short) 0);
+    public static ItemStack torch = Items.createItem(Material.TORCH, ChatColor.RESET + "Torch", ChatColor.RESET + "" + ChatColor.GRAY + "Right click to place, gives off light.", Val.torch, 1);
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	//////////////////////////////////////////////////// P O T I O N S //////////////////////////////////////////////////////////////
-    public static ItemStack EmptyBottle = Items.createItem(Material.GLASS_BOTTLE, ChatColor.RESET + "Empty Bottle", ChatColor.GRAY + "Can be filled with water to brew potions.", Val.emptyBottle, 1, (short) 0);
+    public static ItemStack EmptyBottle = Items.createItem(Material.GLASS_BOTTLE, ChatColor.RESET + "Empty Bottle", ChatColor.GRAY + "Can be filled with water to brew potions.", Val.emptyBottle, 1);
     public static ItemStack WaterBottle = Items.createPotion(null, 30*20, 0, false, true, Color.BLUE, ChatColor.RESET + "Water Bottle", ChatColor.GRAY + "Restores 5 saturation.", Val.waterBottle, 1);
     public static ItemStack NightVisionPotion = Items.createPotion(PotionEffectType.NIGHT_VISION, 30*20, 0, false, true, Color.LIME, ChatColor.RESET + "Potion of Night Vision", ChatColor.GRAY + "See in the dark for 30 seconds.", Val.nightVisionPotion, 1);
     public static ItemStack WaterBreathingPotion = Items.createPotion(PotionEffectType.WATER_BREATHING, 30*20, 0, false, true, Color.BLUE, ChatColor.RESET + "Potion of Water Breathing", ChatColor.GRAY + "Breathe underwater for 30 seconds.", Val.waterBreathingPotion, 1);
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
 	/////////////////////////////////////////////////////////////////// K E Y S ///////////////////////////////////////////////////////////////////////////////
-    public static ItemStack StrangeIronKey = Items.createItem(Material.PUMPKIN_SEEDS, ChatColor.RESET + "Strange Iron Key", ChatColor.GRAY + "Strangely shaped.", 10, 1, (short) 0);
-    public static ItemStack RustedIronKey = Items.createItem(Material.PUMPKIN_SEEDS, ChatColor.RESET + "Rusted Iron Key", ChatColor.GRAY + "Obviously very old.", 50, 1, (short) 0);
-	public static ItemStack IronKey = Items.createItem(Material.PUMPKIN_SEEDS, ChatColor.RESET + "Iron Key", ChatColor.GRAY + "Can be used to unlock some doors.", 20, 1, (short) 0);
-	public static ItemStack StrangeGoldKey = Items.createItem(Material.MELON_SEEDS, ChatColor.RESET + "Strange Gold Key", ChatColor.GRAY + "Strangely shaped.", 80, 1, (short) 0);
-	public static ItemStack GoldKey = Items.createItem(Material.MELON_SEEDS, ChatColor.RESET + "Gold Key", ChatColor.GRAY + "Can be used to unlock some doors.", 100, 1, (short) 0);
-	public static ItemStack CityKey = Items.createItem(Material.MELON_SEEDS, ChatColor.RESET + "City Key", ChatColor.GRAY + "Can be used to unlock the city gates!", 100000, 1, (short) 0);
-	public static ItemStack OldDiamondKey = Items.createItem(Material.WHEAT_SEEDS, ChatColor.RESET + "Old Diamond Key", ChatColor.GRAY + "Can be used to unlock some doors.", 20000, 1, (short) 0);
-	public static ItemStack DiamondKey = Items.createItem(Material.WHEAT_SEEDS, ChatColor.RESET + "Diamond Key", ChatColor.GRAY + "Can be used to unlock some doors.", 200000, 1, (short) 0);
+    public static ItemStack StrangeIronKey = Items.createItem(Material.PUMPKIN_SEEDS, ChatColor.RESET + "Strange Iron Key", ChatColor.GRAY + "Strangely shaped.", 10, 1);
+    public static ItemStack RustedIronKey = Items.createItem(Material.PUMPKIN_SEEDS, ChatColor.RESET + "Rusted Iron Key", ChatColor.GRAY + "Obviously very old.", 50, 1);
+	public static ItemStack IronKey = Items.createItem(Material.PUMPKIN_SEEDS, ChatColor.RESET + "Iron Key", ChatColor.GRAY + "Can be used to unlock some doors.", 20, 1);
+	public static ItemStack StrangeGoldKey = Items.createItem(Material.MELON_SEEDS, ChatColor.RESET + "Strange Gold Key", ChatColor.GRAY + "Strangely shaped.", 80, 1);
+	public static ItemStack GoldKey = Items.createItem(Material.MELON_SEEDS, ChatColor.RESET + "Gold Key", ChatColor.GRAY + "Can be used to unlock some doors.", 100, 1);
+	public static ItemStack CityKey = Items.createItem(Material.MELON_SEEDS, ChatColor.RESET + "City Key", ChatColor.GRAY + "Can be used to unlock the city gates!", 100000, 1);
+	public static ItemStack OldDiamondKey = Items.createItem(Material.WHEAT_SEEDS, ChatColor.RESET + "Old Diamond Key", ChatColor.GRAY + "Can be used to unlock some doors.", 20000, 1);
+	public static ItemStack DiamondKey = Items.createItem(Material.WHEAT_SEEDS, ChatColor.RESET + "Diamond Key", ChatColor.GRAY + "Can be used to unlock some doors.", 200000, 1);
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	//////////////////////////////////////////////////// O R E S //////////////////////////////////////////////////////////////
-	public static ItemStack Stick = Items.createItem(Material.STICK, ChatColor.RESET + "Wood Stick", ChatColor.GRAY + "Can be made into planks. Use /craft to craft!", Val.stickVal, 1, (short) 0);
-	public static ItemStack CobbleStone = Items.createItem(Material.COBBLESTONE, ChatColor.RESET + "Cobblestone", ChatColor.GRAY + "Can be made into basic tools.", Val.cobbleStoneVal, 1, (short) 0);
-	public static ItemStack Sapphire = Items.createItem(Material.INK_SAC, ChatColor.RESET + "Sapphire", ChatColor.GRAY + "Strong and valuable.", Val.sapphireVal, 1, (short) 4);
-	public static ItemStack Ruby = Items.createItem(Material.INK_SAC, ChatColor.RESET + "Ruby", ChatColor.GRAY + "Has a fiery glow to it.", Val.rubyVal, 1, (short) 1);
-	public static ItemStack Emerald = Items.createItem(Material.EMERALD, ChatColor.RESET + "Emerald", ChatColor.GRAY + "Has a sharp shine to it.", Val.emeraldVal, 1, (short) 0);
-	public static ItemStack PrismarineCrystals = Items.createItem(Material.PRISMARINE_CRYSTALS, ChatColor.RESET + "Prismarine Crystals", ChatColor.GRAY + "Guarded by strange creatures.", Val.prismarineCrystalsVal, 1, (short) 0);
-	public static ItemStack Coal = Items.createItem(Material.COAL, ChatColor.RESET + "Coal", ChatColor.GRAY + "Can be used to smelt ingots! Use /smelt to smelt!", Val.coalVal, 1, (short) 0);
-	public static ItemStack Magma = Items.createItem(Material.MAGMA_BLOCK, ChatColor.RESET + "Magma", ChatColor.GRAY + "Can be used to smelt ingots! Use /smelt to smelt!", Val.magmaVal, 1, (short) 0);
-	public static ItemStack IronOre = Items.createItem(Material.IRON_ORE, ChatColor.RESET + "Iron Ore", ChatColor.GRAY + "Can be smelted to make iron ingots.", Val.ironOreVal, 1, (short) 0);
-	public static ItemStack GoldOre = Items.createItem(Material.GOLD_ORE, ChatColor.RESET + "Gold Ore", ChatColor.GRAY + "Can be smelted to make gold ingots.", Val.goldOreVal, 1, (short) 0);
-	public static ItemStack DiamondOre = Items.createItem(Material.DIAMOND_ORE, ChatColor.RESET + "Diamond Ore", ChatColor.GRAY + "Can be smelted to make diamonds.", Val.diamondOreVal, 1, (short) 0);
-	public static ItemStack MithrilOre = Items.createItem(Material.TERRACOTTA, ChatColor.RESET + "Mithril Ore", ChatColor.GRAY + "Can be smelted to make mithril ingots.", Val.mithrilOreVal, 1, (short) 2);
-	public static ItemStack AdamantiteOre = Items.createItem(Material.TERRACOTTA, ChatColor.RESET + "Adamantite Ore", ChatColor.GRAY + "Can be smelted to make adamantite ingots.", Val.adamantiteOreVal, 1, (short) 3);
-	public static ItemStack VoidOre = Items.createItem(Material.TERRACOTTA, ChatColor.RESET + "Void Ore", ChatColor.GRAY + "Can be smelted to make void gems.", Val.voidOreVal, 1, (short) 4);
+	public static ItemStack Stick = Items.createItem(Material.STICK, ChatColor.RESET + "Wood Stick", ChatColor.GRAY + "Can be made into planks. Use /craft to craft!", Val.stickVal, 1);
+	public static ItemStack CobbleStone = Items.createItem(Material.COBBLESTONE, ChatColor.RESET + "Cobblestone", ChatColor.GRAY + "Can be made into basic tools.", Val.cobbleStoneVal, 1);
+	public static ItemStack Sapphire = Items.createItem(Material.LAPIS_LAZULI, ChatColor.RESET + "Sapphire", ChatColor.GRAY + "Strong and valuable.", Val.sapphireVal, 1);
+	public static ItemStack Ruby = Items.createItem(Material.RED_DYE, ChatColor.RESET + "Ruby", ChatColor.GRAY + "Has a fiery glow to it.", Val.rubyVal, 1);
+	public static ItemStack Emerald = Items.createItem(Material.EMERALD, ChatColor.RESET + "Emerald", ChatColor.GRAY + "Has a sharp shine to it.", Val.emeraldVal, 1);
+	public static ItemStack PrismarineCrystals = Items.createItem(Material.PRISMARINE_CRYSTALS, ChatColor.RESET + "Prismarine Crystals", ChatColor.GRAY + "Guarded by strange creatures.", Val.prismarineCrystalsVal, 1);
+	public static ItemStack Coal = Items.createItem(Material.COAL, ChatColor.RESET + "Coal", ChatColor.GRAY + "Can be used to smelt ingots! Use /smelt to smelt!", Val.coalVal, 1);
+	public static ItemStack Magma = Items.createItem(Material.MAGMA_BLOCK, ChatColor.RESET + "Magma", ChatColor.GRAY + "Can be used to smelt ingots! Use /smelt to smelt!", Val.magmaVal, 1);
+	public static ItemStack IronOre = Items.createItem(Material.IRON_ORE, ChatColor.RESET + "Iron Ore", ChatColor.GRAY + "Can be smelted to make iron ingots.", Val.ironOreVal, 1);
+	public static ItemStack GoldOre = Items.createItem(Material.GOLD_ORE, ChatColor.RESET + "Gold Ore", ChatColor.GRAY + "Can be smelted to make gold ingots.", Val.goldOreVal, 1);
+	public static ItemStack DiamondOre = Items.createItem(Material.DIAMOND_ORE, ChatColor.RESET + "Diamond Ore", ChatColor.GRAY + "Can be smelted to make diamonds.", Val.diamondOreVal, 1);
+	public static ItemStack MithrilOre = Items.createItem(Material.MAGENTA_TERRACOTTA, ChatColor.RESET + "Mithril Ore", ChatColor.GRAY + "Can be smelted to make mithril ingots.", Val.mithrilOreVal, 1);
+	public static ItemStack AdamantiteOre = Items.createItem(Material.LIGHT_BLUE_TERRACOTTA, ChatColor.RESET + "Adamantite Ore", ChatColor.GRAY + "Can be smelted to make adamantite ingots.", Val.adamantiteOreVal, 1);
+	public static ItemStack VoidOre = Items.createItem(Material.YELLOW_TERRACOTTA, ChatColor.RESET + "Void Ore", ChatColor.GRAY + "Can be smelted to make void gems.", Val.voidOreVal, 1);
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	//////////////////////////////////////////////////// I N G O T S //////////////////////////////////////////////////////////////
-	public static ItemStack Wood = Items.createItem(Material.OAK_WOOD, ChatColor.RESET + "Oak Wood Planks", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.woodVal, 1, (short) 0);
-	public static ItemStack Stone = Items.createItem(Material.STONE, ChatColor.RESET + "Stone", ChatColor.GRAY + "Can be used to craft tools.", Val.stoneVal, 1, (short) 0);
-	public static ItemStack IronIngot = Items.createItem(Material.IRON_INGOT, ChatColor.RESET + "Iron Ingot", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.ironIngotVal, 1, (short) 0);
-	public static ItemStack GoldIngot = Items.createItem(Material.GOLD_INGOT, ChatColor.RESET + "Gold Ingot", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.goldIngotVal, 1, (short) 0);
-	public static ItemStack Diamond = Items.createItem(Material.DIAMOND, ChatColor.RESET + "Diamond", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.diamondVal, 1, (short) 0);
-	public static ItemStack MithrilIngot = Items.createItem(Material.INK_SAC, ChatColor.RESET + "Mithril Ingot", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.mithrilIngotVal, 1, (short) 6);
-	public static ItemStack AdamantiteIngot = Items.createItem(Material.INK_SAC, ChatColor.RESET + "Adamantite Ingot", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.adamantiteIngotVal, 1, (short) 5);
-	public static ItemStack VoidGem = Items.createItem(Material.INK_SAC, ChatColor.RESET + "Void Gem", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.voidGemVal, 1, (short) 13);
+	public static ItemStack Wood = Items.createItem(Material.OAK_PLANKS, ChatColor.RESET + "Oak Wood Planks", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.woodVal, 1);
+	public static ItemStack Stone = Items.createItem(Material.STONE, ChatColor.RESET + "Stone", ChatColor.GRAY + "Can be used to craft tools.", Val.stoneVal, 1);
+	public static ItemStack IronIngot = Items.createItem(Material.IRON_INGOT, ChatColor.RESET + "Iron Ingot", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.ironIngotVal, 1);
+	public static ItemStack GoldIngot = Items.createItem(Material.GOLD_INGOT, ChatColor.RESET + "Gold Ingot", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.goldIngotVal, 1);
+	public static ItemStack Diamond = Items.createItem(Material.DIAMOND, ChatColor.RESET + "Diamond", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.diamondVal, 1);
+	public static ItemStack MithrilIngot = Items.createItem(Material.CYAN_DYE, ChatColor.RESET + "Mithril Ingot", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.mithrilIngotVal, 1);
+	public static ItemStack AdamantiteIngot = Items.createItem(Material.PURPLE_DYE, ChatColor.RESET + "Adamantite Ingot", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.adamantiteIngotVal, 1);
+	public static ItemStack VoidGem = Items.createItem(Material.MAGENTA_DYE, ChatColor.RESET + "Void Gem", ChatColor.GRAY + "Can be used to craft tools and armor.", Val.voidGemVal, 1);
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	//////////////////////////////////////////////////// F O O D  //////////////////////////////////////////////////////////////
-	public static ItemStack Steak = Items.createItem(Material.COOKED_BEEF, ChatColor.RESET + "Steak", ChatColor.GRAY + "Restores 4 hunger bars.", Val.steak, 1, (short) 0);
-	public static ItemStack Porkchop = Items.createItem(Material.COOKED_PORKCHOP, ChatColor.RESET + "Grilled Porkchop", ChatColor.GRAY + "Restores 3 hunger bars.", Val.porkchop, 1, (short) 0);
-	public static ItemStack Chicken = Items.createItem(Material.COOKED_CHICKEN, ChatColor.RESET + "Cooked Chicken", ChatColor.GRAY + "Restores 3 hunger bars.", Val.chicken, 1, (short) 0);
-	public static ItemStack Mutton = Items.createItem(Material.COOKED_MUTTON, ChatColor.RESET + "Cooked Mutton", ChatColor.GRAY + "Restores 3 hunger bars.", Val.mutton, 1, (short) 0);
-	public static ItemStack Bread = Items.createItem(Material.BREAD, ChatColor.RESET + "Bread", ChatColor.GRAY + "Restores 2.5 hunger bars.", Val.bread, 1, (short) 0);
-	public static ItemStack Pie = Items.createItem(Material.PUMPKIN_PIE, ChatColor.RESET + "Pumpkin Pie", ChatColor.GRAY + "Restores 4 hunger bars.", Val.pumpkinPie, 1, (short) 0);
-	public static ItemStack Cookies = Items.createItem(Material.COOKIE, ChatColor.RESET + "Cookies", ChatColor.GRAY + "Restores 1 hunger bar.", Val.cookies, 1, (short) 0);
-	public static ItemStack Fish = Items.createItem(Material.LEGACY_COOKED_FISH, ChatColor.RESET + "Cooked Tuna", ChatColor.GRAY + "Restores 2.5 hunger bars.", Val.fish, 1, (short) 0);
-	public static ItemStack Salmon = Items.createItem(Material.LEGACY_COOKED_FISH, ChatColor.RESET + "Cooked Salmon", ChatColor.GRAY + "Restores 3 hunger bars.", Val.salmon, 1, (short) 1);
-	public static ItemStack Clownfish = Items.createItem(Material.LEGACY_RAW_FISH, ChatColor.RESET + "Clownfish", ChatColor.GRAY + "Restores 1 hunger bar.", Val.clownfish, 1, (short) 2); 
+	public static ItemStack Steak = Items.createItem(Material.COOKED_BEEF, ChatColor.RESET + "Steak", ChatColor.GRAY + "Restores 4 hunger bars.", Val.steak, 1);
+	public static ItemStack Porkchop = Items.createItem(Material.COOKED_PORKCHOP, ChatColor.RESET + "Grilled Porkchop", ChatColor.GRAY + "Restores 3 hunger bars.", Val.porkchop, 1);
+	public static ItemStack Chicken = Items.createItem(Material.COOKED_CHICKEN, ChatColor.RESET + "Cooked Chicken", ChatColor.GRAY + "Restores 3 hunger bars.", Val.chicken, 1);
+	public static ItemStack Mutton = Items.createItem(Material.COOKED_MUTTON, ChatColor.RESET + "Cooked Mutton", ChatColor.GRAY + "Restores 3 hunger bars.", Val.mutton, 1);
+	public static ItemStack Bread = Items.createItem(Material.BREAD, ChatColor.RESET + "Bread", ChatColor.GRAY + "Restores 2.5 hunger bars.", Val.bread, 1);
+	public static ItemStack Pie = Items.createItem(Material.PUMPKIN_PIE, ChatColor.RESET + "Pumpkin Pie", ChatColor.GRAY + "Restores 4 hunger bars.", Val.pumpkinPie, 1);
+	public static ItemStack Cookies = Items.createItem(Material.COOKIE, ChatColor.RESET + "Cookies", ChatColor.GRAY + "Restores 1 hunger bar.", Val.cookies, 1);
+	public static ItemStack Fish = Items.createItem(Material.COOKED_COD, ChatColor.RESET + "Cooked Tuna", ChatColor.GRAY + "Restores 2.5 hunger bars.", Val.fish, 1);
+	public static ItemStack Salmon = Items.createItem(Material.COOKED_SALMON, ChatColor.RESET + "Cooked Salmon", ChatColor.GRAY + "Restores 3 hunger bars.", Val.salmon, 1);
+	public static ItemStack Clownfish = Items.createItem(Material.TROPICAL_FISH, ChatColor.RESET + "Clownfish", ChatColor.GRAY + "Restores 1 hunger bar.", Val.clownfish, 1); 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
     ////////// Wood ////////////////
@@ -573,29 +587,29 @@ public class Items {
 	public static ItemStack VoidBoots = Items.createLeatherArmor(Color.PURPLE, Material.LEATHER_BOOTS, ChatColor.RESET + "Void Boots", "" + ChatColor.RESET + ChatColor.GRAY + "Uses void energy to create an impossibly strong material.", Val.vBoots, 0, 8, 4, "feet");
 
 	//////////////////////////////////////////////////// S H O P   I T E M S //////////////////////////////////////////////////////////////
-	public static ItemStack sSteak = Items.createShopItem(Material.COOKED_BEEF, ChatColor.RESET + "Steak", ChatColor.GRAY + "Restores 4 hunger bars.", Val.steak * Val.foodSM, 1, (short) 0);
-	public static ItemStack sPorkchop = Items.createShopItem(Material.COOKED_PORKCHOP, ChatColor.RESET + "Grilled Porkchop", ChatColor.GRAY + "Restores 3 hunger bars.", Val.porkchop * Val.foodSM, 1, (short) 0);
-	public static ItemStack sChicken = Items.createShopItem(Material.COOKED_CHICKEN, ChatColor.RESET + "Cooked Chicken", ChatColor.GRAY + "Restores 3 hunger bars.", Val.chicken * Val.foodSM, 1, (short) 0);
-	public static ItemStack sMutton = Items.createShopItem(Material.COOKED_MUTTON, ChatColor.RESET + "Cooked Mutton", ChatColor.GRAY + "Restores 3 hunger bars.", Val.mutton * Val.foodSM, 1, (short) 0);
-	public static ItemStack sBread = Items.createShopItem(Material.BREAD, ChatColor.RESET + "Bread", ChatColor.GRAY + "Restores 2.5 hunger bars.", Val.bread * Val.foodSM, 1, (short) 0);
-	public static ItemStack sPie = Items.createShopItem(Material.PUMPKIN_PIE, ChatColor.RESET + "Pumpkin Pie", ChatColor.GRAY + "Restores 4 hunger bars.", Val.pumpkinPie * Val.foodSM, 1, (short) 0);
-	public static ItemStack sCookies = Items.createShopItem(Material.COOKIE, ChatColor.RESET + "Cookies", ChatColor.GRAY + "Restores 1 hunger bar.", Val.cookies * Val.foodSM, 1, (short) 0);
-	public static ItemStack sFish = Items.createShopItem(Material.LEGACY_COOKED_FISH, ChatColor.RESET + "Cooked Tuna", ChatColor.GRAY + "Restores 2.5 hunger bars.", Val.fish * Val.foodSM, 1, (short) 0);
-	public static ItemStack sSalmon = Items.createShopItem(Material.LEGACY_COOKED_FISH, ChatColor.RESET + "Cooked Salmon", ChatColor.GRAY + "Restores 3 hunger bars.", Val.salmon * Val.foodSM, 1, (short) 1); 
-	public static ItemStack sClownfish = Items.createShopItem(Material.LEGACY_RAW_FISH, ChatColor.RESET + "Clownfish", ChatColor.GRAY + "Restores 1 hunger bar.", Val.clownfish * Val.foodSM, 1, (short) 2); 
+	public static ItemStack sSteak = Items.createShopItem(Material.COOKED_BEEF, ChatColor.RESET + "Steak", ChatColor.GRAY + "Restores 4 hunger bars.", Val.steak * Val.foodSM, 1, 0);
+	public static ItemStack sPorkchop = Items.createShopItem(Material.COOKED_PORKCHOP, ChatColor.RESET + "Grilled Porkchop", ChatColor.GRAY + "Restores 3 hunger bars.", Val.porkchop * Val.foodSM, 1, 0);
+	public static ItemStack sChicken = Items.createShopItem(Material.COOKED_CHICKEN, ChatColor.RESET + "Cooked Chicken", ChatColor.GRAY + "Restores 3 hunger bars.", Val.chicken * Val.foodSM, 1, 0);
+	public static ItemStack sMutton = Items.createShopItem(Material.COOKED_MUTTON, ChatColor.RESET + "Cooked Mutton", ChatColor.GRAY + "Restores 3 hunger bars.", Val.mutton * Val.foodSM, 1, 0);
+	public static ItemStack sBread = Items.createShopItem(Material.BREAD, ChatColor.RESET + "Bread", ChatColor.GRAY + "Restores 2.5 hunger bars.", Val.bread * Val.foodSM, 1, 0);
+	public static ItemStack sPie = Items.createShopItem(Material.PUMPKIN_PIE, ChatColor.RESET + "Pumpkin Pie", ChatColor.GRAY + "Restores 4 hunger bars.", Val.pumpkinPie * Val.foodSM, 1, 0);
+	public static ItemStack sCookies = Items.createShopItem(Material.COOKIE, ChatColor.RESET + "Cookies", ChatColor.GRAY + "Restores 1 hunger bar.", Val.cookies * Val.foodSM, 1, 0);
+	public static ItemStack sFish = Items.createShopItem(Material.COOKED_COD, ChatColor.RESET + "Cooked Tuna", ChatColor.GRAY + "Restores 2.5 hunger bars.", Val.fish * Val.foodSM, 1, 0);
+	public static ItemStack sSalmon = Items.createShopItem(Material.COOKED_SALMON, ChatColor.RESET + "Cooked Salmon", ChatColor.GRAY + "Restores 3 hunger bars.", Val.salmon * Val.foodSM, 1, 0); 
+	public static ItemStack sClownfish = Items.createShopItem(Material.TROPICAL_FISH, ChatColor.RESET + "Clownfish", ChatColor.GRAY + "Restores 1 hunger bar.", Val.clownfish * Val.foodSM, 1, 0); 
 	
-	public static ItemStack sEmptyBottle = Items.createShopItem(Material.GLASS_BOTTLE, ChatColor.RESET + "Empty Bottle", ChatColor.GRAY + "Can be filled with water to brew potions.", Val.emptyBottle*Val.potionSM, 1, (short) 0);
+	public static ItemStack sEmptyBottle = Items.createShopItem(Material.GLASS_BOTTLE, ChatColor.RESET + "Empty Bottle", ChatColor.GRAY + "Can be filled with water to brew potions.", Val.emptyBottle*Val.potionSM, 1, 0);
     public static ItemStack sNightVisionPotion = Items.createShopPotion(PotionEffectType.NIGHT_VISION, 30*20, 0, false, true, Color.LIME, ChatColor.RESET + "Potion of Night Vision", ChatColor.GRAY + "See in the dark for 30 seconds.", Val.nightVisionPotion*Val.potionSM, 1);
     public static ItemStack sWaterBreathingPotion = Items.createShopPotion(PotionEffectType.WATER_BREATHING, 30*20, 0, false, true, Color.BLUE, ChatColor.RESET + "Potion of Water Breathing", ChatColor.GRAY + "Breathe underwater for 30 seconds.", Val.waterBreathingPotion*Val.potionSM, 1);
 	
-	public static ItemStack sRustedIronKey = Items.createShopGemItem(Material.PUMPKIN_SEEDS, ChatColor.RESET + "Rusted Iron Key", ChatColor.GRAY + "Obviously very old.", 50, 25, 25, (short) 0);
-	public static ItemStack sStrangeGoldKey = Items.createItem(Material.MELON_SEEDS, ChatColor.RESET + "Strange Gold Key", ChatColor.GRAY + "Strangely shaped.", 10250, 1, (short) 0);
-	public static ItemStack sGoldKey = Items.createShopItem(Material.MELON_SEEDS, ChatColor.RESET + "Gold Key", ChatColor.GRAY + "Can be used to unlock some doors.", 20500, 1, (short) 0);
-	public static ItemStack sCityKey = Items.createShopTradeItem(Material.MELON_SEEDS, ChatColor.RESET + "City Key", ChatColor.GRAY + "Can be used to unlock the city gates!", 1, (short) 0, Items.MassiveDiamond);
-	public static ItemStack sOldDiamondKey = Items.createShopTradeItem(Material.WHEAT_SEEDS, ChatColor.RESET + "Old Diamond Key", ChatColor.GRAY + "Can be used to unlock some doors.", 100, (short) 0, Items.PrismarineCrystals);
+	public static ItemStack sRustedIronKey = Items.createShopGemItem(Material.PUMPKIN_SEEDS, ChatColor.RESET + "Rusted Iron Key", ChatColor.GRAY + "Obviously very old.", 50, 25, 25, 0);
+	public static ItemStack sStrangeGoldKey = Items.createItem(Material.MELON_SEEDS, ChatColor.RESET + "Strange Gold Key", ChatColor.GRAY + "Strangely shaped.", 10250, 1);
+	public static ItemStack sGoldKey = Items.createShopItem(Material.MELON_SEEDS, ChatColor.RESET + "Gold Key", ChatColor.GRAY + "Can be used to unlock some doors.", 20500, 1, 0);
+	public static ItemStack sCityKey = Items.createShopTradeItem(Material.MELON_SEEDS, ChatColor.RESET + "City Key", ChatColor.GRAY + "Can be used to unlock the city gates!", 1, 0, Items.MassiveDiamond);
+	public static ItemStack sOldDiamondKey = Items.createShopTradeItem(Material.WHEAT_SEEDS, ChatColor.RESET + "Old Diamond Key", ChatColor.GRAY + "Can be used to unlock some doors.", 100, 0, Items.PrismarineCrystals);
 	
-	public static ItemStack sMassiveDiamond = Items.createShopItem(Material.DIAMOND, ChatColor.RESET + "Super Massive Diamond", ChatColor.GRAY + "Harold's prized possession.", Val.superMassiveDiamond * Val.diamondSM, 1, (short) 0);
-	public static ItemStack sDivingHelmet = Items.createShopArmor(Material.PUMPKIN, ChatColor.RESET + "Diving Helmet", "" + ChatColor.RESET + ChatColor.GRAY + "Allows you to breathe underwater.", Val.divingHelmet*Val.woodSM, 0, 1, 0, "head");
+	public static ItemStack sMassiveDiamond = Items.createShopItem(Material.DIAMOND, ChatColor.RESET + "Super Massive Diamond", ChatColor.GRAY + "Harold's prized possession.", Val.superMassiveDiamond * Val.diamondSM, 1, 0);
+	public static ItemStack sDivingHelmet = Items.createShopArmor(Material.CARVED_PUMPKIN, ChatColor.RESET + "Diving Helmet", "" + ChatColor.RESET + ChatColor.GRAY + "Allows you to breathe underwater.", Val.divingHelmet*Val.woodSM, 0, 1, 0, "head");
 	
 	public static ItemStack sStrengthBoostAbility = Items.createShopAbilityItem("Strength Boost", "Allows you to boost your strength allowing", "you to deal +3 attack damage for a short time.", 100);
 	public static ItemStack sExplodeAbility = Items.createShopAbilityItem("Explode", "Allows you to explode, dealing damage", "to all enimies in an 8 block radius.", 1000);

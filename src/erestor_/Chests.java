@@ -36,7 +36,7 @@ public class Chests {
 			
 	/////////////////////////////////////////////////////////////////// C H E S T    I T E M S //////////////////////////////////////////////////////////////////////
     if(id == "pyramid") {
-	    Chests.createChestItem(Items.createGoldBagItem(Material.INK_SAC, "" + Main.getRandom(10000, 500)), 75, 1, 1, ChestInventory);
+	    Chests.createChestItem(Items.createGoldBagItem("" + Main.getRandom(10000, 500)), 75, 1, 1, ChestInventory);
     	Chests.createChestItem(Items.Emerald,              50, 1, 16, ChestInventory);
     	Chests.createChestItem(Items.Sapphire,             50, 1, 16, ChestInventory);
     	Chests.createChestItem(Items.Ruby,                 50, 1, 16, ChestInventory);
@@ -79,7 +79,7 @@ public class Chests {
 	    Chests.createChestItem(Items.OldDiamondKey,        1, 1, 1, ChestInventory);
 	    
     } else if (id == "minesGeneral") {
-    	Chests.createChestItem(Items.createGoldBagItem(Material.INK_SAC, "" + Main.getRandom(500, 1)), 75, 1, 1, ChestInventory);
+    	Chests.createChestItem(Items.createGoldBagItem("" + Main.getRandom(500, 1)), 75, 1, 1, ChestInventory);
     	Chests.createChestItem(Items.Coal,              30, 1, 32, ChestInventory);
  	    Chests.createChestItem(Items.IronOre,           30, 1, 16, ChestInventory);
  	    Chests.createChestItem(Items.IronIngot,         30, 1, 5, ChestInventory);
@@ -112,7 +112,7 @@ public class Chests {
 	    Chests.createChestItem(Items.IronPickaxe,       1, 1, 1, ChestInventory);
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	    } else {
-		Chests.createChestItem(Items.createGoldBagItem(Material.INK_SAC, "" + Main.getRandom(100, 1)), 100, 1, 1, ChestInventory);	
+		Chests.createChestItem(Items.createGoldBagItem("" + Main.getRandom(100, 1)), 100, 1, 1, ChestInventory);	
 		}
 
 	p.openInventory(ChestInventory);				    

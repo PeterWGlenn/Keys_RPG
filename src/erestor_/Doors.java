@@ -12,24 +12,23 @@ import org.bukkit.potion.PotionEffectType;
 
 public class Doors {
 	
-	@SuppressWarnings("deprecation")
 	public static void doorMeta(ItemStack Key, int x, int y, int z, int xT, int yT, int zT, int id, Player p, Block b, Action a) {
 		if (a == Action.RIGHT_CLICK_BLOCK){
-			if (b.getType().equals(Material.LEGACY_IRON_DOOR_BLOCK)) {
+			if (b.getType().equals(Material.IRON_DOOR)) {
 		    if (b.getLocation().equals(Bukkit.getServer().getWorld("world").getBlockAt(x, y, z).getLocation()) || b.getLocation().equals(Bukkit.getServer().getWorld("world").getBlockAt(x, (y + 1), z).getLocation())) {
     		
 		    if (p.getInventory().getItemInMainHand().getType() != Material.AIR && p.getInventory().getItemInMainHand().getItemMeta().getDisplayName() != null && p.getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(Key.getItemMeta().getDisplayName())) {
     	    p.sendMessage(ChatColor.GREEN + "You opened a locked door!");
     	    
-    		Bukkit.getServer().getWorld("world").getBlockAt(xT, yT, zT).setType(Material.LEGACY_REDSTONE_TORCH_ON);
+    		Bukkit.getServer().getWorld("world").getBlockAt(xT, yT, zT).setType(Material.REDSTONE_TORCH);
     		
     		p.getInventory().removeItem(Key);
     		
     		///////////////////////////// BOSS SPAWNS //////////////////////////////////////////
-    		if(id == 1) { Spawns.spawnZombieMethod(-205, 49, 381, ChatColor.RED + "Governor", 80, Items.GoldSword, Items.GoldHelmet, Items.IronChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 2, PotionEffectType.INCREASE_DAMAGE, 0, false, false); }
-    		if(id == 3) { Spawns.spawnZombieMethod(320, 91, 69, ChatColor.RED + "Captain of the Guard", 100, Items.DiamondSword, Items.DiamondHelmet, Items.DiamondChestplate, Items.GoldLeggings, Items.DiamondBoots, PotionEffectType.SPEED, 2, PotionEffectType.INCREASE_DAMAGE, 0, false, false); 
-    		              Spawns.spawnZombieMethod(320, 91, 71, ChatColor.GREEN + "Undead Wall Guard", 40, Items.GoldSword, Items.DiamondHelmet, Items.IronChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 0, false, false);
-    		              Spawns.spawnZombieMethod(320, 91, 67, ChatColor.GREEN + "Undead Wall Guard", 40, Items.GoldSword, Items.DiamondHelmet, Items.IronChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 0, false, false);}
+    		if(id == 1) { Spawns.spawnZombieMethod(-205, 49, 381, ChatColor.RED + "Governor", 80, Items.GoldSword, Items.GoldHelmet, Items.IronChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 2, PotionEffectType.INCREASE_DAMAGE, 0, false, true); }
+    		if(id == 3) { Spawns.spawnZombieMethod(320, 91, 69, ChatColor.RED + "Captain of the Guard", 100, Items.DiamondSword, Items.DiamondHelmet, Items.DiamondChestplate, Items.GoldLeggings, Items.DiamondBoots, PotionEffectType.SPEED, 2, PotionEffectType.INCREASE_DAMAGE, 0, false, true); 
+    		              Spawns.spawnZombieMethod(320, 91, 71, ChatColor.GREEN + "Undead Wall Guard", 40, Items.GoldSword, Items.DiamondHelmet, Items.IronChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 0, false, true);
+    		              Spawns.spawnZombieMethod(320, 91, 67, ChatColor.GREEN + "Undead Wall Guard", 40, Items.GoldSword, Items.DiamondHelmet, Items.IronChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 0, false, true);}
     		if(id == 9) { Arena.spawnArenaMob(); }
     		////////////////////////////////////////////////////////////////////////////////////
     		

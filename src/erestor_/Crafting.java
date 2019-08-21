@@ -29,43 +29,43 @@ public class Crafting {
     public static void openFurnaceGUI(Player player){
     	furnaceInv = Bukkit.createInventory(null, 9, ChatColor.DARK_GRAY + "Click An Ore To Smelt It!"); 
     	
-    	ItemStack Stone = Items.createItem(Material.COBBLESTONE, "" + ChatColor.GRAY + ChatColor.BOLD + "Cobblestone", "", 0, 1, (short) 0);
+    	ItemStack Stone = Items.createItem(Material.COBBLESTONE, "" + ChatColor.GRAY + ChatColor.BOLD + "Cobblestone", "", 0, 1);
     	ItemMeta StoneM = Stone.getItemMeta();
     	StoneM.setLore(Arrays.asList(ChatColor.DARK_PURPLE + "Click to smelt!", ChatColor.GOLD + "Cost: ", ChatColor.GRAY + "8 Cobblestone", ChatColor.GRAY + "8 Coal", ChatColor.GOLD + "Produces:", ChatColor.GRAY + "Stone [x1]"));
     	Stone.setItemMeta(StoneM);
         furnaceInv.setItem(0, (ItemStack) (Stone));
     	
-        ItemStack IronOre = Items.createItem(Material.IRON_ORE, "" + ChatColor.GRAY + ChatColor.BOLD + "Iron Ore", "", 0, 1, (short) 0);
+        ItemStack IronOre = Items.createItem(Material.IRON_ORE, "" + ChatColor.GRAY + ChatColor.BOLD + "Iron Ore", "", 0, 1);
         ItemMeta IronOreM = IronOre.getItemMeta();
         IronOreM.setLore(Arrays.asList(ChatColor.DARK_PURPLE + "Click to smelt!", ChatColor.GOLD + "Cost: ", ChatColor.GRAY + "8 Iron Ore", ChatColor.GRAY + "16 Coal", ChatColor.GOLD + "Produces:", ChatColor.GRAY + "Iron Ingot [x1]"));
         IronOre.setItemMeta(IronOreM);
         furnaceInv.setItem(1, (ItemStack) (IronOre));
 	     
-        ItemStack GoldOre = Items.createItem(Material.GOLD_ORE, "" + ChatColor.GOLD + ChatColor.BOLD + "Gold Ore", "", 0, 1, (short) 0);
+        ItemStack GoldOre = Items.createItem(Material.GOLD_ORE, "" + ChatColor.GOLD + ChatColor.BOLD + "Gold Ore", "", 0, 1);
         ItemMeta GoldOreM = GoldOre.getItemMeta();
         GoldOreM.setLore(Arrays.asList(ChatColor.DARK_PURPLE + "Click to smelt!", ChatColor.GOLD + "Cost: ", ChatColor.GRAY + "12 Gold Ore", ChatColor.GRAY + "24 Coal", ChatColor.GOLD + "Produces:", ChatColor.GOLD + "Gold Ingot [x1]"));
         GoldOre.setItemMeta(GoldOreM);
         furnaceInv.setItem(2, (ItemStack) (GoldOre));
 	     
-        ItemStack DiamondOre = Items.createItem(Material.DIAMOND_ORE, "" + ChatColor.AQUA + ChatColor.BOLD + "Diamond Ore", "", 0, 1, (short) 0);
+        ItemStack DiamondOre = Items.createItem(Material.DIAMOND_ORE, "" + ChatColor.AQUA + ChatColor.BOLD + "Diamond Ore", "", 0, 1);
         ItemMeta DiamondOreM = DiamondOre.getItemMeta();
         DiamondOreM.setLore(Arrays.asList(ChatColor.DARK_PURPLE + "Click to smelt!", ChatColor.GOLD + "Cost: ", ChatColor.GRAY + "32 Diamond Ore", ChatColor.GRAY + "40 Coal", ChatColor.GOLD + "Produces:", ChatColor.AQUA + "Diamond [x1]"));
         DiamondOre.setItemMeta(DiamondOreM);
         furnaceInv.setItem(3, (ItemStack) (DiamondOre));
 	     
-        ItemStack MithrilOre = Items.createItem(Material.TERRACOTTA, "" + ChatColor.DARK_AQUA + ChatColor.BOLD + "Mithril Ore", "", 0, 1, (short) 2);
+        ItemStack MithrilOre = Items.createItem(Material.MAGENTA_TERRACOTTA, "" + ChatColor.DARK_AQUA + ChatColor.BOLD + "Mithril Ore", "", 0, 1);
         ItemMeta MithrilOreM = MithrilOre.getItemMeta();
         MithrilOreM.setLore(Arrays.asList(ChatColor.DARK_PURPLE + "Click to smelt!", ChatColor.GOLD + "Cost: ", ChatColor.GRAY + "64 Mithril Ore", ChatColor.GRAY + "64 Coal", ChatColor.GOLD + "Produces:", ChatColor.DARK_AQUA + "Mithril Ingot [x1]"));
         MithrilOre.setItemMeta(MithrilOreM);
         furnaceInv.setItem(4, (ItemStack) (MithrilOre));
 	     
-        ItemStack AdamantiteOre = Items.createItem(Material.TERRACOTTA, "" + ChatColor.DARK_RED + ChatColor.BOLD + "Adamantite Ore", "", 0, 1, (short) 3);
+        ItemStack AdamantiteOre = Items.createItem(Material.LIGHT_BLUE_TERRACOTTA, "" + ChatColor.DARK_RED + ChatColor.BOLD + "Adamantite Ore", "", 0, 1);
         ItemMeta AdamantiteOreM = AdamantiteOre.getItemMeta();
         AdamantiteOreM.setLore(Arrays.asList(ChatColor.DARK_PURPLE + "Click to smelt!", ChatColor.GOLD + "Cost: ", ChatColor.GRAY + "128 Adamantite Ore", ChatColor.GRAY + "24 Magma", ChatColor.GOLD + "Produces:", ChatColor.DARK_RED + "Adamantite Ingot [x1]"));
         AdamantiteOre.setItemMeta(AdamantiteOreM);
         furnaceInv.setItem(5, (ItemStack) (AdamantiteOre));
             
-        ItemStack VoidOre = Items.createItem(Material.TERRACOTTA, "" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Void Ore", "", 0, 1, (short) 4);
+        ItemStack VoidOre = Items.createItem(Material.YELLOW_TERRACOTTA, "" + ChatColor.DARK_PURPLE + ChatColor.BOLD + "Void Ore", "", 0, 1);
         ItemMeta VoidOreM = VoidOre.getItemMeta();
         VoidOreM.setLore(Arrays.asList(ChatColor.DARK_PURPLE + "Click to smelt!", ChatColor.GOLD + "Cost: ", ChatColor.GRAY + "512 Void Ore", ChatColor.GRAY + "48 Magma", ChatColor.GOLD + "Produces:", ChatColor.DARK_PURPLE + "Void Gem [x1]"));
         VoidOre.setItemMeta(VoidOreM);
@@ -75,7 +75,6 @@ public class Crafting {
 	    player.openInventory(furnaceInv);
 	}
     
-    @SuppressWarnings("deprecation")
 	public static void furnaceInvHandMethod(Player p, InventoryClickEvent e, Material firstMat, byte firstMatData, Material secondMat, ItemStack firstItem, ItemStack secondItem, ItemStack result, int itemCostOne, int itemCostTwo) {
     	if(e.getCurrentItem().getType() == firstMat && e.getCurrentItem().getDurability() == firstMatData){
             if(p.getInventory().contains(firstMat, itemCostOne) && p.getInventory().contains(secondMat, itemCostTwo)) {
@@ -99,7 +98,7 @@ public class Crafting {
     }
     
     public static void furnaceInvHandler(Player p, InventoryClickEvent e) {
-    	if(e.getInventory().getTitle().contains("Click An Ore To Smelt It!")){
+    	if(e.getView().getTitle().contains("Click An Ore To Smelt It!")){
             e.setCancelled(true); 
 
             if(e.getCurrentItem() == null){
@@ -129,7 +128,6 @@ public class Crafting {
 		Bukkit.getServer().clearRecipes();
 	}
 	
-	@SuppressWarnings("deprecation")
 	public static void addRecipes(Main main) {	
 	/////////////////////////////////////////////////////////////////// M A T E R I A L S ////////////////////////////////////////////////////////////////////////////////////////
 	// Wooden Planks
@@ -146,39 +144,39 @@ public class Crafting {
     /////////////////////////////////////////////////////////////////// W O O D ////////////////////////////////////////////////////////////////////////////////////////
 	    // Wood Sword
 	 	NamespacedKey woodSwordKey = new NamespacedKey(main,"WoodSword");
-		ShapedRecipe WoodSwordR = new ShapedRecipe(woodSwordKey,Items.WoodSword).shape(" 2 "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.OAK_WOOD);
+		ShapedRecipe WoodSwordR = new ShapedRecipe(woodSwordKey,Items.WoodSword).shape(" 2 "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.OAK_PLANKS);
 	 	Bukkit.getServer().addRecipe(WoodSwordR);
 	    // Wood Knife
 	 	NamespacedKey woodKnifeKey = new NamespacedKey(main,"WoodKnife");
-		ShapedRecipe WoodKnifeR = new ShapedRecipe(woodKnifeKey,Items.WoodKnife).shape("   "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.OAK_WOOD);
+		ShapedRecipe WoodKnifeR = new ShapedRecipe(woodKnifeKey,Items.WoodKnife).shape("   "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.OAK_PLANKS);
 	 	Bukkit.getServer().addRecipe(WoodKnifeR);
 	    // Wood Battleaxe
 	 	NamespacedKey woodBattleaxeKey = new NamespacedKey(main,"WoodBattleaxe");
-		ShapedRecipe WoodBattleaxeR = new ShapedRecipe(woodBattleaxeKey,Items.WoodBattleaxe).shape("222","212"," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.OAK_WOOD);
+		ShapedRecipe WoodBattleaxeR = new ShapedRecipe(woodBattleaxeKey,Items.WoodBattleaxe).shape("222","212"," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.OAK_PLANKS);
 	 	Bukkit.getServer().addRecipe(WoodBattleaxeR);
 	    // Wood Pickaxe
 	 	NamespacedKey woodPickaxeKey = new NamespacedKey(main,"WoodPickaxe");
-		ShapedRecipe WoodPickaxeR = new ShapedRecipe(woodPickaxeKey,Items.WoodPickaxe).shape("222"," 1 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.OAK_WOOD);
+		ShapedRecipe WoodPickaxeR = new ShapedRecipe(woodPickaxeKey,Items.WoodPickaxe).shape("222"," 1 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.OAK_PLANKS);
 	    Bukkit.getServer().addRecipe(WoodPickaxeR);
 	    // Wood Shield
 	    NamespacedKey woodShieldKey = new NamespacedKey(main,"WoodShield");
-		ShapedRecipe WoodShieldR = new ShapedRecipe(woodShieldKey,Items.WoodShield).shape(" 11"," 11"," 11").setIngredient('1', Material.OAK_WOOD);
+		ShapedRecipe WoodShieldR = new ShapedRecipe(woodShieldKey,Items.WoodShield).shape(" 11"," 11"," 11").setIngredient('1', Material.OAK_PLANKS);
 	    Bukkit.getServer().addRecipe(WoodShieldR);
 	    // Wood Helmet
 	    NamespacedKey woodHelmetKey = new NamespacedKey(main,"WoodHelmet");
-		ShapedRecipe WoodHelmetR = new ShapedRecipe(woodHelmetKey,Items.WoodHelmet).shape("111","1 1","   ").setIngredient('1', Material.OAK_WOOD);
+		ShapedRecipe WoodHelmetR = new ShapedRecipe(woodHelmetKey,Items.WoodHelmet).shape("111","1 1","   ").setIngredient('1', Material.OAK_PLANKS);
 	    Bukkit.getServer().addRecipe(WoodHelmetR);
 	    // Wood Chestplate
 	    NamespacedKey woodChestplateKey = new NamespacedKey(main,"WoodChestplate");
-		ShapedRecipe WoodChestplateR = new ShapedRecipe(woodChestplateKey,Items.WoodChestplate).shape("1 1","111","111").setIngredient('1', Material.OAK_WOOD);
+		ShapedRecipe WoodChestplateR = new ShapedRecipe(woodChestplateKey,Items.WoodChestplate).shape("1 1","111","111").setIngredient('1', Material.OAK_PLANKS);
 	    Bukkit.getServer().addRecipe(WoodChestplateR);
 	    // Wood Leggings
 	    NamespacedKey woodLeggingsKey = new NamespacedKey(main,"WoodLeggings");
-		ShapedRecipe WoodLeggingsR = new ShapedRecipe(woodLeggingsKey,Items.WoodLeggings).shape("111","1 1","1 1").setIngredient('1', Material.OAK_WOOD);
+		ShapedRecipe WoodLeggingsR = new ShapedRecipe(woodLeggingsKey,Items.WoodLeggings).shape("111","1 1","1 1").setIngredient('1', Material.OAK_PLANKS);
 	    Bukkit.getServer().addRecipe(WoodLeggingsR);
 	    // Wood Boots
 	    NamespacedKey woodBootsKey = new NamespacedKey(main,"WoodBoots");
-		ShapedRecipe WoodBootsR = new ShapedRecipe(woodBootsKey,Items.WoodBoots).shape("   ","1 1","1 1").setIngredient('1', Material.OAK_WOOD);
+		ShapedRecipe WoodBootsR = new ShapedRecipe(woodBootsKey,Items.WoodBoots).shape("   ","1 1","1 1").setIngredient('1', Material.OAK_PLANKS);
 	    Bukkit.getServer().addRecipe(WoodBootsR);
 	/////////////////////////////////////////////////////////////////// S T O N E ////////////////////////////////////////////////////////////////////////////////////////
 	    // Stone Sword
@@ -315,113 +313,113 @@ public class Crafting {
 	    /////////////////////////////////////////////////////////////////// M I T H R I L ////////////////////////////////////////////////////////////////////////////////////////
 	    // Mithril Sword
 	 	NamespacedKey mithrilSwordKey = new NamespacedKey(main,"MithrilSword");
-		ShapedRecipe MithrilSwordR = new ShapedRecipe(mithrilSwordKey,Items.MithrilSword).shape(" 2 "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 4);
+		ShapedRecipe MithrilSwordR = new ShapedRecipe(mithrilSwordKey,Items.MithrilSword).shape(" 2 "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.LAPIS_LAZULI);
 	 	Bukkit.getServer().addRecipe(MithrilSwordR);
 	    // Mithril Knife
 	 	NamespacedKey mithrilKnifeKey = new NamespacedKey(main,"MithrilKnife");
-		ShapedRecipe MithrilKnifeR = new ShapedRecipe(mithrilKnifeKey,Items.MithrilKnife).shape("   "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 4);
+		ShapedRecipe MithrilKnifeR = new ShapedRecipe(mithrilKnifeKey,Items.MithrilKnife).shape("   "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.LAPIS_LAZULI);
 	 	Bukkit.getServer().addRecipe(MithrilKnifeR);
 	    // Mithril Battleaxe
 	 	NamespacedKey mithrilBattleaxeKey = new NamespacedKey(main,"MithrilBattleaxe");
-		ShapedRecipe MithrilBattleaxeR = new ShapedRecipe(mithrilBattleaxeKey,Items.MithrilBattleaxe).shape("222","212"," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 4);
+		ShapedRecipe MithrilBattleaxeR = new ShapedRecipe(mithrilBattleaxeKey,Items.MithrilBattleaxe).shape("222","212"," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.LAPIS_LAZULI);
 	 	Bukkit.getServer().addRecipe(MithrilBattleaxeR);
 	    // Mithril Pickaxe
 	 	NamespacedKey mithrilPickaxeKey = new NamespacedKey(main,"MithrilPickaxe");
-		ShapedRecipe MithrilPickaxeR = new ShapedRecipe(mithrilPickaxeKey,Items.MithrilPickaxe).shape("222"," 1 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 4);
+		ShapedRecipe MithrilPickaxeR = new ShapedRecipe(mithrilPickaxeKey,Items.MithrilPickaxe).shape("222"," 1 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.LAPIS_LAZULI);
 	    Bukkit.getServer().addRecipe(MithrilPickaxeR);
 	    // Mithril Shield
 	    NamespacedKey mithrilShieldKey = new NamespacedKey(main,"MithrilShield");
-		ShapedRecipe MithrilShieldR = new ShapedRecipe(mithrilShieldKey,Items.MithrilShield).shape(" 11"," 11"," 11").setIngredient('1', Material.INK_SAC, (short) 4);
+		ShapedRecipe MithrilShieldR = new ShapedRecipe(mithrilShieldKey,Items.MithrilShield).shape(" 11"," 11"," 11").setIngredient('1', Material.LAPIS_LAZULI);
 	    Bukkit.getServer().addRecipe(MithrilShieldR);
 	    // Mithril Helmet
 	    NamespacedKey mithrilHelmetKey = new NamespacedKey(main,"MithrilHelmet");
-		ShapedRecipe MithrilHelmetR = new ShapedRecipe(mithrilHelmetKey,Items.MithrilHelmet).shape("111","1 1","   ").setIngredient('1', Material.INK_SAC, (short) 4);
+		ShapedRecipe MithrilHelmetR = new ShapedRecipe(mithrilHelmetKey,Items.MithrilHelmet).shape("111","1 1","   ").setIngredient('1', Material.LAPIS_LAZULI);
 	    Bukkit.getServer().addRecipe(MithrilHelmetR);
 	    // Mithril Chestplate
 	    NamespacedKey mithrilChestplateKey = new NamespacedKey(main,"MithrilChestplate");
-		ShapedRecipe MithrilChestplateR = new ShapedRecipe(mithrilChestplateKey,Items.MithrilChestplate).shape("1 1","111","111").setIngredient('1', Material.INK_SAC, (short) 4);
+		ShapedRecipe MithrilChestplateR = new ShapedRecipe(mithrilChestplateKey,Items.MithrilChestplate).shape("1 1","111","111").setIngredient('1', Material.LAPIS_LAZULI);
 	    Bukkit.getServer().addRecipe(MithrilChestplateR);
 	    // Mithril Leggings
 	    NamespacedKey mithrilLeggingsKey = new NamespacedKey(main,"MithrilLeggings");
-		ShapedRecipe MithrilLeggingsR = new ShapedRecipe(mithrilLeggingsKey,Items.MithrilLeggings).shape("111","1 1","1 1").setIngredient('1', Material.INK_SAC, (short) 4);
+		ShapedRecipe MithrilLeggingsR = new ShapedRecipe(mithrilLeggingsKey,Items.MithrilLeggings).shape("111","1 1","1 1").setIngredient('1', Material.LAPIS_LAZULI);
 	    Bukkit.getServer().addRecipe(MithrilLeggingsR);
 	    // Mithril Boots
 	    NamespacedKey mithrilBootsKey = new NamespacedKey(main,"MithrilBoots");
-		ShapedRecipe MithrilBootsR = new ShapedRecipe(mithrilBootsKey,Items.MithrilBoots).shape("   ","1 1","1 1").setIngredient('1', Material.INK_SAC, (short) 4);
+		ShapedRecipe MithrilBootsR = new ShapedRecipe(mithrilBootsKey,Items.MithrilBoots).shape("   ","1 1","1 1").setIngredient('1', Material.LAPIS_LAZULI);
 	    Bukkit.getServer().addRecipe(MithrilBootsR);
 	    /////////////////////////////////////////////////////////////////// A D A M A N T I T E ////////////////////////////////////////////////////////////////////////////////////////
 	    // Adamantite Sword
 	 	NamespacedKey adamantiteSwordKey = new NamespacedKey(main,"AdamantiteSword");
-		ShapedRecipe AdamantiteSwordR = new ShapedRecipe(adamantiteSwordKey,Items.AdamantiteSword).shape(" 2 "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 5);
+		ShapedRecipe AdamantiteSwordR = new ShapedRecipe(adamantiteSwordKey,Items.AdamantiteSword).shape(" 2 "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.PURPLE_DYE);
 	 	Bukkit.getServer().addRecipe(AdamantiteSwordR);
 	    // Adamantite Knife
 	 	NamespacedKey adamantiteKnifeKey = new NamespacedKey(main,"AdamantiteKnife");
-		ShapedRecipe AdamantiteKnifeR = new ShapedRecipe(adamantiteKnifeKey,Items.AdamantiteKnife).shape("   "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 5);
+		ShapedRecipe AdamantiteKnifeR = new ShapedRecipe(adamantiteKnifeKey,Items.AdamantiteKnife).shape("   "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.PURPLE_DYE);
 	 	Bukkit.getServer().addRecipe(AdamantiteKnifeR);
 	    // Adamantite Battleaxe
 	 	NamespacedKey adamantiteBattleaxeKey = new NamespacedKey(main,"AdamantiteBattleaxe");
-		ShapedRecipe AdamantiteBattleaxeR = new ShapedRecipe(adamantiteBattleaxeKey,Items.AdamantiteBattleaxe).shape("222","212"," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 5);
+		ShapedRecipe AdamantiteBattleaxeR = new ShapedRecipe(adamantiteBattleaxeKey,Items.AdamantiteBattleaxe).shape("222","212"," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.PURPLE_DYE);
 	 	Bukkit.getServer().addRecipe(AdamantiteBattleaxeR);
 	    // Adamantite Pickaxe
 	 	NamespacedKey adamantitePickaxeKey = new NamespacedKey(main,"AdamantitePickaxe");
-		ShapedRecipe AdamantitePickaxeR = new ShapedRecipe(adamantitePickaxeKey,Items.AdamantitePickaxe).shape("222"," 1 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 5);
+		ShapedRecipe AdamantitePickaxeR = new ShapedRecipe(adamantitePickaxeKey,Items.AdamantitePickaxe).shape("222"," 1 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.PURPLE_DYE);
 	    Bukkit.getServer().addRecipe(AdamantitePickaxeR);
 	    // Adamantite Shield
 	    NamespacedKey adamantiteShieldKey = new NamespacedKey(main,"AdamantiteShield");
-		ShapedRecipe AdamantiteShieldR = new ShapedRecipe(adamantiteShieldKey,Items.AdamantiteShield).shape(" 11"," 11"," 11").setIngredient('1', Material.INK_SAC, (short) 5);
+		ShapedRecipe AdamantiteShieldR = new ShapedRecipe(adamantiteShieldKey,Items.AdamantiteShield).shape(" 11"," 11"," 11").setIngredient('1', Material.PURPLE_DYE);
 	    Bukkit.getServer().addRecipe(AdamantiteShieldR);
 	    // Adamantite Helmet
 	    NamespacedKey adamantiteHelmetKey = new NamespacedKey(main,"AdamantiteHelmet");
-		ShapedRecipe AdamantiteHelmetR = new ShapedRecipe(adamantiteHelmetKey,Items.AdamantiteHelmet).shape("111","1 1","   ").setIngredient('1', Material.INK_SAC, (short) 5);
+		ShapedRecipe AdamantiteHelmetR = new ShapedRecipe(adamantiteHelmetKey,Items.AdamantiteHelmet).shape("111","1 1","   ").setIngredient('1', Material.PURPLE_DYE);
 	    Bukkit.getServer().addRecipe(AdamantiteHelmetR);
 	    // Adamantite Chestplate
 	    NamespacedKey adamantiteChestplateKey = new NamespacedKey(main,"AdamantiteChestplate");
-		ShapedRecipe AdamantiteChestplateR = new ShapedRecipe(adamantiteChestplateKey,Items.AdamantiteChestplate).shape("1 1","111","111").setIngredient('1', Material.INK_SAC, (short) 5);
+		ShapedRecipe AdamantiteChestplateR = new ShapedRecipe(adamantiteChestplateKey,Items.AdamantiteChestplate).shape("1 1","111","111").setIngredient('1', Material.PURPLE_DYE);
 	    Bukkit.getServer().addRecipe(AdamantiteChestplateR);
 	    // Adamantite Leggings
 	    NamespacedKey adamantiteLeggingsKey = new NamespacedKey(main,"AdamantiteLeggings");
-		ShapedRecipe AdamantiteLeggingsR = new ShapedRecipe(adamantiteLeggingsKey,Items.AdamantiteLeggings).shape("111","1 1","1 1").setIngredient('1', Material.INK_SAC, (short) 5);
+		ShapedRecipe AdamantiteLeggingsR = new ShapedRecipe(adamantiteLeggingsKey,Items.AdamantiteLeggings).shape("111","1 1","1 1").setIngredient('1', Material.PURPLE_DYE);
 	    Bukkit.getServer().addRecipe(AdamantiteLeggingsR);
 	    // Adamantite Boots
 	    NamespacedKey adamantiteBootsKey = new NamespacedKey(main,"AdamantiteBoots");
-		ShapedRecipe AdamantiteBootsR = new ShapedRecipe(adamantiteBootsKey,Items.AdamantiteBoots).shape("   ","1 1","1 1").setIngredient('1', Material.INK_SAC, (short) 5);
+		ShapedRecipe AdamantiteBootsR = new ShapedRecipe(adamantiteBootsKey,Items.AdamantiteBoots).shape("   ","1 1","1 1").setIngredient('1', Material.PURPLE_DYE);
 	    Bukkit.getServer().addRecipe(AdamantiteBootsR);
 	    /////////////////////////////////////////////////////////////////// E N C H A N T E D ////////////////////////////////////////////////////////////////////////////////////////
 	    // Void Sword
 	 	NamespacedKey enchantedSwordKey = new NamespacedKey(main,"VoidSword");
-		ShapedRecipe VoidSwordR = new ShapedRecipe(enchantedSwordKey,Items.VoidSword).shape(" 2 "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 13);
+		ShapedRecipe VoidSwordR = new ShapedRecipe(enchantedSwordKey,Items.VoidSword).shape(" 2 "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.MAGENTA_DYE);
 	 	Bukkit.getServer().addRecipe(VoidSwordR);
 	    // Void Knife
 	 	NamespacedKey enchantedKnifeKey = new NamespacedKey(main,"VoidKnife");
-		ShapedRecipe VoidKnifeR = new ShapedRecipe(enchantedKnifeKey,Items.VoidKnife).shape("   "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 13);
+		ShapedRecipe VoidKnifeR = new ShapedRecipe(enchantedKnifeKey,Items.VoidKnife).shape("   "," 2 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.MAGENTA_DYE);
 	 	Bukkit.getServer().addRecipe(VoidKnifeR);
 	    // Void Battleaxe
 	 	NamespacedKey enchantedBattleaxeKey = new NamespacedKey(main,"VoidBattleaxe");
-		ShapedRecipe VoidBattleaxeR = new ShapedRecipe(enchantedBattleaxeKey,Items.VoidBattleaxe).shape("222","212"," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 13);
+		ShapedRecipe VoidBattleaxeR = new ShapedRecipe(enchantedBattleaxeKey,Items.VoidBattleaxe).shape("222","212"," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.MAGENTA_DYE);
 	 	Bukkit.getServer().addRecipe(VoidBattleaxeR);
 	    // Void Pickaxe
 	 	NamespacedKey enchantedPickaxeKey = new NamespacedKey(main,"VoidPickaxe");
-		ShapedRecipe VoidPickaxeR = new ShapedRecipe(enchantedPickaxeKey,Items.VoidPickaxe).shape("222"," 1 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.INK_SAC, (short) 13);
+		ShapedRecipe VoidPickaxeR = new ShapedRecipe(enchantedPickaxeKey,Items.VoidPickaxe).shape("222"," 1 "," 1 ").setIngredient('1', Material.STICK).setIngredient('2', Material.MAGENTA_DYE);
 	    Bukkit.getServer().addRecipe(VoidPickaxeR);
 	    // Void Shield
 	    NamespacedKey enchantedShieldKey = new NamespacedKey(main,"VoidShield");
-		ShapedRecipe VoidShieldR = new ShapedRecipe(enchantedShieldKey,Items.VoidShield).shape(" 11"," 11"," 11").setIngredient('1', Material.INK_SAC, (short) 13);
+		ShapedRecipe VoidShieldR = new ShapedRecipe(enchantedShieldKey,Items.VoidShield).shape(" 11"," 11"," 11").setIngredient('1', Material.MAGENTA_DYE);
 	    Bukkit.getServer().addRecipe(VoidShieldR);
 	    // Void Helmet
 	    NamespacedKey enchantedHelmetKey = new NamespacedKey(main,"VoidHelmet");
-		ShapedRecipe VoidHelmetR = new ShapedRecipe(enchantedHelmetKey,Items.VoidHelmet).shape("111","1 1","   ").setIngredient('1', Material.INK_SAC, (short) 13);
+		ShapedRecipe VoidHelmetR = new ShapedRecipe(enchantedHelmetKey,Items.VoidHelmet).shape("111","1 1","   ").setIngredient('1', Material.MAGENTA_DYE);
 	    Bukkit.getServer().addRecipe(VoidHelmetR);
 	    // Void Chestplate
 	    NamespacedKey enchantedChestplateKey = new NamespacedKey(main,"VoidChestplate");
-		ShapedRecipe VoidChestplateR = new ShapedRecipe(enchantedChestplateKey,Items.VoidChestplate).shape("1 1","111","111").setIngredient('1', Material.INK_SAC, (short) 13);
+		ShapedRecipe VoidChestplateR = new ShapedRecipe(enchantedChestplateKey,Items.VoidChestplate).shape("1 1","111","111").setIngredient('1', Material.MAGENTA_DYE);
 	    Bukkit.getServer().addRecipe(VoidChestplateR);
 	    // Void Leggings
 	    NamespacedKey enchantedLeggingsKey = new NamespacedKey(main,"VoidLeggings");
-		ShapedRecipe VoidLeggingsR = new ShapedRecipe(enchantedLeggingsKey,Items.VoidLeggings).shape("111","1 1","1 1").setIngredient('1', Material.INK_SAC, (short) 13);
+		ShapedRecipe VoidLeggingsR = new ShapedRecipe(enchantedLeggingsKey,Items.VoidLeggings).shape("111","1 1","1 1").setIngredient('1', Material.MAGENTA_DYE);
 	    Bukkit.getServer().addRecipe(VoidLeggingsR);
 	    // Void Boots
 	    NamespacedKey enchantedBootsKey = new NamespacedKey(main,"VoidBoots");
-		ShapedRecipe VoidBootsR = new ShapedRecipe(enchantedBootsKey,Items.VoidBoots).shape("   ","1 1","1 1").setIngredient('1', Material.INK_SAC, (short) 13);
+		ShapedRecipe VoidBootsR = new ShapedRecipe(enchantedBootsKey,Items.VoidBoots).shape("   ","1 1","1 1").setIngredient('1', Material.MAGENTA_DYE);
 	    Bukkit.getServer().addRecipe(VoidBootsR);
 	    
 	}

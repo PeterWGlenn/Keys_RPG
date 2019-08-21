@@ -284,8 +284,8 @@ public class PlayerManager {
 		int keptLevels = (int) (playerLevel * 0.9);
 		int lostLevels = (int) (playerLevel * 0.1);
 		
-		ItemStack BagOfLostCoins = Items.createGoldBagItem(Material.INK_SAC, "" + lostLevels);
-		ItemStack BagOfKeptCoins = Items.createGoldBagItem(Material.INK_SAC, "" + keptLevels);
+		ItemStack BagOfLostCoins = Items.createGoldBagItem("" + lostLevels);
+		ItemStack BagOfKeptCoins = Items.createGoldBagItem("" + keptLevels);
 		p.getWorld().dropItem(p.getLocation(), BagOfLostCoins);
 
 		
@@ -571,7 +571,7 @@ public class PlayerManager {
 	
 	// Diving Helmet
 	public static void divingHelmet(Player p) {
-		if(p.getInventory().getHelmet() != null && p.getInventory().getHelmet().getType().equals(Material.PUMPKIN)) {
+		if(p.getInventory().getHelmet() != null && p.getInventory().getHelmet().getType().equals(Material.CARVED_PUMPKIN)) {
 			if(p.getRemainingAir() < 100)
 				p.setRemainingAir(90);
 		}

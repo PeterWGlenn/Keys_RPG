@@ -20,6 +20,7 @@ import org.bukkit.entity.Silverfish;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.entity.Spider;
 import org.bukkit.entity.Zombie;
+import org.bukkit.entity.ZombieVillager;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -30,7 +31,12 @@ public class Spawns {
  		
  	Block b = Bukkit.getServer().getWorld("world").getBlockAt(x, y, z);
  		
-	Zombie zombie = (Zombie) b.getLocation().getWorld().spawn(b.getLocation(), Zombie.class);
+	Zombie zombie;
+	if(isVillager) {
+		zombie = b.getLocation().getWorld().spawn(b.getLocation(), ZombieVillager.class);
+	} else {
+		zombie = (Zombie) b.getLocation().getWorld().spawn(b.getLocation(), Zombie.class);
+	}
 	zombie.setCustomName(name);
 	zombie.setCustomNameVisible(true);
 	setMaxHealth(zombie,health);
@@ -47,7 +53,12 @@ public class Spawns {
  	
 	public static void spawnZombieFromLocMethod(Location l, String name, int health, ItemStack sword, ItemStack helmet, ItemStack chestplate, ItemStack leggings, ItemStack boots, PotionEffectType potOne, int ampOne, PotionEffectType potTwo, int ampTwo, boolean isBaby, boolean isVillager) {
 	 		
-    Zombie zombie = (Zombie) l.getWorld().spawn(l, Zombie.class);
+	Zombie zombie;
+	if(isVillager) {
+		zombie = l.getWorld().spawn(l, ZombieVillager.class);
+	} else {
+		zombie = (Zombie) l.getWorld().spawn(l, Zombie.class);
+	}
 	zombie.setCustomName(name);
 	zombie.setCustomNameVisible(true);
 	setMaxHealth(zombie,health);
@@ -205,21 +216,21 @@ public class Spawns {
        
        // Mining Spawns
        if(id == 1) {
-    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Undead Villager", 10, Items.WoodKnife, Items.WoodHelmet, Items.air, Items.air, Items.air, PotionEffectType.SPEED, 1, PotionEffectType.NIGHT_VISION, 0, false, false);
+    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Undead Villager", 10, Items.WoodKnife, Items.WoodHelmet, Items.air, Items.air, Items.air, PotionEffectType.SPEED, 1, PotionEffectType.NIGHT_VISION, 0, false, true);
        }
        if(id == 2) {
-    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Undead Guard", 20, Items.StoneSword, Items.IronHelmet, Items.IronChestplate, Items.WoodLeggings, Items.WoodBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 1, false, false);
+    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Undead Guard", 20, Items.StoneSword, Items.IronHelmet, Items.IronChestplate, Items.WoodLeggings, Items.WoodBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 1, false, true);
        }
        if(id == 3) {
-    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Undead Warrior", 30, Items.DiamondBattleaxe, Items.IronHelmet, Items.GoldChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 1, false, false);
+    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Undead Warrior", 30, Items.DiamondBattleaxe, Items.IronHelmet, Items.GoldChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 1, false, true);
        }
        if(id == 4) {
-    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Undead Knight", 50, Items.MithrilSword, Items.DiamondHelmet, Items.MithrilChestplate, Items.DiamondLeggings, Items.MithrilBoots, PotionEffectType.SPEED, 0, PotionEffectType.INCREASE_DAMAGE, 0, false, false);
-    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Strong Undead Warrior", 35, Items.DiamondSword, Items.IronHelmet, Items.DiamondChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 0, false, false);
-    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Strong Undead Warrior", 35, Items.DiamondSword, Items.IronHelmet, Items.DiamondChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 0, false, false);
+    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Undead Knight", 50, Items.MithrilSword, Items.DiamondHelmet, Items.MithrilChestplate, Items.DiamondLeggings, Items.MithrilBoots, PotionEffectType.SPEED, 0, PotionEffectType.INCREASE_DAMAGE, 0, false, true);
+    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Strong Undead Warrior", 35, Items.DiamondSword, Items.IronHelmet, Items.DiamondChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 0, false, true);
+    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Strong Undead Warrior", 35, Items.DiamondSword, Items.IronHelmet, Items.DiamondChestplate, Items.IronLeggings, Items.IronBoots, PotionEffectType.SPEED, 1, PotionEffectType.REGENERATION, 0, false, true);
        }
        if(id == 5) {
-    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Undead Elite", 120, Items.MithrilKnife, Items.MithrilHelmet, Items.MithrilChestplate, Items.MithrilLeggings, Items.MithrilBoots, PotionEffectType.SPEED, 2, PotionEffectType.INCREASE_DAMAGE, 1, true, false);    	
+    	   Spawns.spawnZombieFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Undead Elite", 120, Items.MithrilKnife, Items.MithrilHelmet, Items.MithrilChestplate, Items.MithrilLeggings, Items.MithrilBoots, PotionEffectType.SPEED, 2, PotionEffectType.INCREASE_DAMAGE, 1, true, true);    	
        }
        
        // Boss Spawns
