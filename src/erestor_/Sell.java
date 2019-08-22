@@ -10,7 +10,7 @@ public class Sell {
 	
 	public static void sellMethod(ItemStack item, int amount, Player p, InventoryClickEvent e) {
 		
-		if(e.getView().getTitle().contains("Shop") && !(e.getCurrentItem().equals(null))) {
+		if(e.getView().getTitle().contains("Shop") && e.getCurrentItem() != null) {
 		if(!e.getCurrentItem().getType().equals(Material.AIR)) {
 	    if(e.getCurrentItem().getItemMeta().getDisplayName() != null) {
 		if(e.getCurrentItem().getItemMeta().getDisplayName().equals(item.getItemMeta().getDisplayName()) && e.getCurrentItem().getItemMeta().getLore().equals(item.getItemMeta().getLore())) {

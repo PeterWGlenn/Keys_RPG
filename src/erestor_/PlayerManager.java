@@ -189,7 +189,7 @@ public class PlayerManager {
 	// Gold Bag Manager
 	public static void goldBag(Player p, InventoryClickEvent e) {
 	
-	if(!(e.getCurrentItem().equals(null)) && !(e.getCurrentItem().getType().equals(Material.AIR)) && e.isRightClick()) {
+	if(e.getCurrentItem() != null && !(e.getCurrentItem().getType().equals(Material.AIR)) && e.isRightClick()) {
 	    if(e.getCurrentItem().getItemMeta().getDisplayName() != null) {
 		if(e.getCurrentItem().getItemMeta().getLore().equals(Arrays.asList(ChatColor.GRAY + "Bag of Coins [Right Click to Redeem!]"))) {
 			e.setCancelled(true);
@@ -439,7 +439,7 @@ public class PlayerManager {
 	
 	// Ability Item Prot
 	public static void abilityItemProt(Player p, InventoryClickEvent e) {
-		if(!(e.getCurrentItem().equals(null)) && !(e.getCurrentItem().getType().equals(Material.AIR))) {
+		if(e.getCurrentItem() != null && !(e.getCurrentItem().getType().equals(Material.AIR))) {
 		    if(e.getCurrentItem().getItemMeta().getDisplayName() != null) {
 			if(e.getSlot() == 35 && p.getInventory().containsAtLeast(e.getCurrentItem(), 1)) {
 				p.closeInventory();
@@ -452,7 +452,7 @@ public class PlayerManager {
 	
 	// Mana Item Prot
 	public static void manaItemProt(Player p, InventoryClickEvent e) {
-		if(!(e.getCurrentItem().equals(null)) && !(e.getCurrentItem().getType().equals(Material.AIR))) {
+		if(e.getCurrentItem() != null && !(e.getCurrentItem().getType().equals(Material.AIR))) {
 		    if(e.getCurrentItem().getItemMeta().getDisplayName() != null) {
 			if(e.getSlot() == 26 && p.getInventory().containsAtLeast(e.getCurrentItem(), 1)) {
 				p.closeInventory();

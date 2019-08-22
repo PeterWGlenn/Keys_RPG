@@ -31,7 +31,7 @@ public class Shops {
 	
 	public static void buyMethod(ItemStack item, ItemStack itemS, int amount, Player p, InventoryClickEvent e) {
 
-		if(e.getView().getTitle().contains("Shop") && !e.getCurrentItem().equals(null)) {
+		if(e.getView().getTitle().contains("Shop") && e.getCurrentItem() != null) {
 		if(!e.getCurrentItem().getType().equals(Material.AIR)) {
 	    if(e.getCurrentItem().getItemMeta().getDisplayName() != null) {
 		if(e.getCurrentItem().getItemMeta().getDisplayName().equals(itemS.getItemMeta().getDisplayName()) && e.getCurrentItem().getItemMeta().getLore().equals(itemS.getItemMeta().getLore())) {
@@ -49,7 +49,7 @@ public class Shops {
 	
 	public static void buyWithGemsMethod(ItemStack item, ItemStack itemS, int amountE, int amountR, int amountS, Player p, InventoryClickEvent e) {
 
-		if(e.getView().getTitle().contains("Shop") && !e.getCurrentItem().getType().equals(Material.AIR)) {
+		if(e.getView().getTitle().contains("Shop") && e.getCurrentItem() != null && !e.getCurrentItem().getType().equals(Material.AIR)) {
 	    if(e.getCurrentItem().getItemMeta().getDisplayName() != null) {
 		if(e.getCurrentItem().getItemMeta().getDisplayName().equals(itemS.getItemMeta().getDisplayName()) && e.getCurrentItem().getItemMeta().getLore().equals(itemS.getItemMeta().getLore())) {
 			
@@ -72,7 +72,7 @@ public class Shops {
 	
 	public static void npcTradeMethod(ItemStack item, ItemStack itemS, ItemStack buyItem, int buyItemAmount, Player p, InventoryClickEvent e) {
 
-		if(e.getView().getTitle().contains("Shop") && !e.getCurrentItem().getType().equals(Material.AIR)) {
+		if(e.getView().getTitle().contains("Shop") && e.getCurrentItem() != null && !e.getCurrentItem().getType().equals(Material.AIR)) {
 	    if(e.getCurrentItem().getItemMeta().getDisplayName() != null) {
 		if(e.getCurrentItem().getItemMeta().getDisplayName().equals(itemS.getItemMeta().getDisplayName()) && e.getCurrentItem().getItemMeta().getLore().equals(itemS.getItemMeta().getLore())) {
 			
@@ -93,8 +93,8 @@ public class Shops {
 	
 	public static void trainMethod(ItemStack item, ItemStack itemS, int amount, Player p, InventoryClickEvent e) {
 
-		if(e.getView().getTitle().contains("Train") && !e.getCurrentItem().getType().equals(Material.AIR)) {
-	    if(e.getCurrentItem().getItemMeta().getDisplayName() != null) {
+		if(e.getView().getTitle().contains("Train") && e.getCurrentItem() != null && e.getCurrentItem().getItemMeta().getDisplayName() != null) {
+	    if(!e.getCurrentItem().getType().equals(Material.AIR)) {
 		if(e.getCurrentItem().getItemMeta().getDisplayName().equals(itemS.getItemMeta().getDisplayName()) && e.getCurrentItem().getItemMeta().getLore().equals(itemS.getItemMeta().getLore())) {
 			if(p.getLevel() >= amount) {
 			p.giveExpLevels(-amount);
