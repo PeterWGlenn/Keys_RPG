@@ -1,1 +1,1 @@
-Test?
+Keys RPG is a server-side Minecraft Java plugin that featured custom bosses, abilities, guilds, NPCs, shops, and a regenerating world system. It could be played by 1-8 players and included 15 hours of story gameplay.
