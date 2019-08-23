@@ -29,34 +29,31 @@ public class Groups {
     public static void regTeamOps() {
     	
     	// Guardians
-    	guardiansOfAncra.setPrefix(ChatColor.DARK_BLUE + "");
-    	guardiansOfAncra.setSuffix(ChatColor.RESET + "");
+    	guardiansOfAncra.setColor(ChatColor.DARK_BLUE);
     	guardiansOfAncra.setCanSeeFriendlyInvisibles(true);
     	// Hunters
-    	leagueOfHunters.setPrefix(ChatColor.DARK_RED + "");
-    	leagueOfHunters.setSuffix(ChatColor.RESET + "");
+    	leagueOfHunters.setColor(ChatColor.DARK_RED);
     	leagueOfHunters.setCanSeeFriendlyInvisibles(true);
     	// Miners
-    	minersFoundry.setPrefix(ChatColor.DARK_GRAY + "");
-    	minersFoundry.setSuffix(ChatColor.RESET + "");
+    	minersFoundry.setColor(ChatColor.DARK_GRAY);
     	minersFoundry.setCanSeeFriendlyInvisibles(true);
     	// Mages
-    	mageSociety.setPrefix(ChatColor.DARK_PURPLE + "");
-    	mageSociety.setSuffix(ChatColor.RESET + "");
+    	mageSociety.setColor(ChatColor.DARK_PURPLE);
     	mageSociety.setCanSeeFriendlyInvisibles(true);
     	// Mages
-    	eastcliffGladiators.setPrefix(ChatColor.YELLOW + "");
-    	eastcliffGladiators.setSuffix(ChatColor.RESET + "");
+    	eastcliffGladiators.setColor(ChatColor.YELLOW);
     	eastcliffGladiators.setCanSeeFriendlyInvisibles(true);
     }
     
     
 	public static void removePlayerFromTeams(Player p) {
-    	 guardiansOfAncra.removePlayer(p);
-		 leagueOfHunters.removePlayer(p);
-		 minersFoundry.removePlayer(p);
-		 mageSociety.removePlayer(p);
-		 eastcliffGladiators.removePlayer(p);
+    	 guardiansOfAncra.removeEntry(p.getName());
+		 leagueOfHunters.removeEntry(p.getName());
+		 minersFoundry.removeEntry(p.getName());
+		 mageSociety.removeEntry(p.getName());
+		 eastcliffGladiators.removeEntry(p.getName());
+		 
+		 p.setDisplayName(ChatColor.RESET + p.getName());
     }
     
 	public static void groups(Player p, Block b, Action a) {
@@ -69,40 +66,45 @@ public class Groups {
 	        		  p.sendMessage(ChatColor.GRAY + "You have joined the " + ChatColor.DARK_BLUE + "Guardians of Ancra" + ChatColor.GRAY + "!");
 	        		  p.getInventory().setItem(17, Items.createGroupItem("Guardians of Ancra", ChatColor.DARK_BLUE, "+15% Resistence", "Players"));
 	        		  removePlayerFromTeams(p);
-	        		  guardiansOfAncra.addPlayer(p);
-	        		  p.setMaxHealth(40);
+	        		  guardiansOfAncra.addEntry(p.getName());
+	        		  p.setDisplayName(ChatColor.DARK_BLUE + p.getName() + ChatColor.RESET);
+	        		  PlayerManager.setMaxHealth(p, 40);
 	        	  }
 	        	  // Hunters
 	        	  if (s.getLine(1).equalsIgnoreCase("League of") && s.getLine(2).equalsIgnoreCase("Hunters")) {
 	        		  p.sendMessage(ChatColor.GRAY + "You have joined the " + ChatColor.DARK_RED + "League of Hunters" + ChatColor.GRAY + "!");
 	        		  p.getInventory().setItem(17, Items.createGroupItem("League of Hunters", ChatColor.DARK_RED, "+15% Damage", "Players"));
 	        		  removePlayerFromTeams(p);
-	        		  leagueOfHunters.addPlayer(p);
-	        		  p.setMaxHealth(40);
+	        		  leagueOfHunters.addEntry(p.getName());
+	        		  p.setDisplayName(ChatColor.DARK_RED + p.getName() + ChatColor.RESET);
+	        		  PlayerManager.setMaxHealth(p, 40);
 	        	  }
 	        	  // Miners
 	        	  if (s.getLine(1).equalsIgnoreCase("Miner's") && s.getLine(2).equalsIgnoreCase("Foundry")) {
 	        		  p.sendMessage(ChatColor.GRAY + "You have joined the " + ChatColor.DARK_GRAY + "Miner's Foundry" + ChatColor.GRAY + "!");
 	        		  p.getInventory().setItem(17, Items.createGroupItem("Miner's Foundry", ChatColor.DARK_GRAY, "+10% Health", "Everything"));
 	        		  removePlayerFromTeams(p);
-	        	      minersFoundry.addPlayer(p);
-	        		  p.setMaxHealth(44);
+	        	      minersFoundry.addEntry(p.getName());
+	        	      p.setDisplayName(ChatColor.DARK_GRAY + p.getName() + ChatColor.RESET);
+	        	      PlayerManager.setMaxHealth(p, 44);
 	        	  }
 	        	  // Mages
 	        	  if (s.getLine(1).equalsIgnoreCase("Mage") && s.getLine(2).equalsIgnoreCase("Society")) {
 	        		  p.sendMessage(ChatColor.GRAY + "You have joined the " + ChatColor.DARK_PURPLE + "Mage Society" + ChatColor.GRAY + "!");
 	        		  p.getInventory().setItem(17, Items.createGroupItem("Mage Society", ChatColor.DARK_PURPLE, "-40% Health, +50% Mana Gain", "Everything"));
 	        		  removePlayerFromTeams(p);
-	        		  mageSociety.addPlayer(p);
-	        		  p.setMaxHealth(24);
+	        		  mageSociety.addEntry(p.getName());
+	        		  p.setDisplayName(ChatColor.DARK_PURPLE + p.getName() + ChatColor.RESET);
+	        		  PlayerManager.setMaxHealth(p, 24);
 	        	  }
 	        	  // Gladiators
 	        	  if (s.getLine(1).equalsIgnoreCase("Eastcliff") && s.getLine(2).equalsIgnoreCase("Gladiators")) {
 	        		  p.sendMessage(ChatColor.GRAY + "You have joined the " + ChatColor.YELLOW + "Eastcliff Gladiators" + ChatColor.GRAY + "!");
 	        		  p.getInventory().setItem(17, Items.createGroupItem("Eastcliff Gladiators", ChatColor.YELLOW, "+7.5% Damage, +7.5% Resistence", "Players"));
 	        		  removePlayerFromTeams(p);
-	        		  eastcliffGladiators.addPlayer(p);
-	        		  p.setMaxHealth(40);
+	        		  eastcliffGladiators.addEntry(p.getName());
+	        		  p.setDisplayName(ChatColor.YELLOW + p.getName() + ChatColor.RESET);
+	        		  PlayerManager.setMaxHealth(p, 40);
 	        	  } 
 	          }
 	       }
@@ -155,10 +157,10 @@ public class Groups {
 			if(((HumanEntity) d).getInventory().getItem(17).getItemMeta().getDisplayName().equals(ChatColor.GRAY + "Group: " + ChatColor.DARK_BLUE + "Guardians of Ancra")){
 				double damage = e.getDamage();
 				double healAmount = damage * 0.15;
-				if((((Damageable) d).getHealth() + healAmount) < ((Damageable) d).getMaxHealth()) {
+				if((((Damageable) d).getHealth() + healAmount) < PlayerManager.getMaxHealth((Player) d)) {
 				((Damageable) d).setHealth(((Damageable) d).getHealth() + healAmount);
 				} else { 
-					((Damageable) d).setHealth(((Damageable) d).getMaxHealth());
+					((Damageable) d).setHealth(PlayerManager.getMaxHealth((Player) d));
 				}
 			}
 			// Mages
@@ -169,10 +171,10 @@ public class Groups {
 			if(((HumanEntity) d).getInventory().getItem(17).getItemMeta().getDisplayName().equals(ChatColor.GRAY + "Group: " + ChatColor.YELLOW + "Eastcliff Gladiators")){
 				double damage = e.getDamage();
 				double healAmount = damage * 0.075;
-					if((((Damageable) d).getHealth() + healAmount) < ((Damageable) d).getMaxHealth()) {
+					if((((Damageable) d).getHealth() + healAmount) < PlayerManager.getMaxHealth((Player) d)) {
 					((Damageable) d).setHealth(((Damageable) d).getHealth() + healAmount);
 				} else { 
-					((Damageable) d).setHealth(((Damageable) d).getMaxHealth());
+					((Damageable) d).setHealth(PlayerManager.getMaxHealth((Player) d));
 				}
 			}
 			// Gladiators Attack

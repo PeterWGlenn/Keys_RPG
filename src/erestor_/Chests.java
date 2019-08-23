@@ -118,10 +118,9 @@ public class Chests {
 	p.openInventory(ChestInventory);				    
 	}
 	
-	@SuppressWarnings("deprecation")
-	public static void OpenChestMethod(PlayerInteractEvent e, Player p, Block b, Material blockType, int blockTypeData, int time, String id) {		
+	public static void OpenChestMethod(PlayerInteractEvent e, Player p, Block b, Material blockType, int time, String id) {		
 	    if(p.getGameMode().equals(GameMode.ADVENTURE)){   	 
-		if (b.getType().equals(Material.TRAPPED_CHEST) && b.getRelative(BlockFace.DOWN).getType().equals(blockType) && b.getRelative(BlockFace.DOWN).getData() == blockTypeData) {				
+		if (b.getType().equals(Material.TRAPPED_CHEST) && b.getRelative(BlockFace.DOWN).getType().equals(blockType)) {				
 	       		 
 	       		Chests.openChestInventory(p, id);       		
 	       		
@@ -155,9 +154,9 @@ public class Chests {
 		if (a == Action.RIGHT_CLICK_BLOCK){
 		
 			// General Mines
-			Chests.OpenChestMethod(e, p, b, Material.STONE, 0, 60 * 5, "minesGeneral");
+			Chests.OpenChestMethod(e, p, b, Material.STONE, 60 * 5, "minesGeneral");
 			// Pyramid
-			Chests.OpenChestMethod(e, p, b, Material.STONE, 1, 5, "pyramid");
+			Chests.OpenChestMethod(e, p, b, Material.GRANITE, 5, "pyramid");
 			
 		}
 	}	

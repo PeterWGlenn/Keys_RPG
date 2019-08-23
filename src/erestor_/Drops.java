@@ -214,20 +214,18 @@ public class Drops {
 	 				Drops.dropCoinsMethod(100, l, Items.SilverCoin, 10, 40);	
 	 			}
 	 			if (e.getCustomName().equals(ChatColor.GREEN + "Undead Archer")) {
-	 				Drops.dropsMethod(10, l, Items.WoodHelmet, 1);
+	 				Drops.dropsMethod(10, l, Items.IronHelmet, 1);
 	 				Drops.dropsMethod(10, l, Items.IronChestplate, 1);
-	 				Drops.dropsMethod(10, l, Items.IronLeggings, 1);
-	 				Drops.dropsMethod(10, l, Items.GoldBoots, 1);
-	 				Drops.dropsMethod(33, l, Items.Emerald, 30);
-	 				Drops.dropsMethod(33, l, Items.Sapphire, 15);
-	 				Drops.dropsMethod(33, l, Items.Ruby, 15);
+	 				Drops.dropsMethod(33, l, Items.Emerald, 15);
+	 				Drops.dropsMethod(33, l, Items.Sapphire, 7);
+	 				Drops.dropsMethod(33, l, Items.Ruby, 7);
 	 				Drops.dropCoinsMethod(100, l, Items.SilverCoin, 1, 75);	
 	 			}
-	 			if (e.getCustomName().equals(ChatColor.GREEN + "Silverfish")) {
-	 				Drops.dropsMethod(33, l, Items.Emerald, 10);
-	 				Drops.dropsMethod(33, l, Items.Ruby, 5);
-	 				Drops.dropsMethod(33, l, Items.Sapphire, 5);
-	 				Drops.dropCoinsMethod(100, l, Items.SilverCoin, 1, 20);
+	 			if (e.getCustomName().equals(ChatColor.GREEN + "Undead Scorpion")) {
+	 				Drops.dropsMethod(33, l, Items.Emerald, 5);
+	 				Drops.dropsMethod(33, l, Items.Ruby, 2);
+	 				Drops.dropsMethod(33, l, Items.Sapphire, 2);
+	 				Drops.dropCoinsMethod(100, l, Items.SilverCoin, 1, 10);
 	 			}
 	 			
 	 			// ARENA
@@ -251,6 +249,25 @@ public class Drops {
 	 				Drops.dropCoinsMethod(100, l, Items.PlatinumCoin, 3, 4);
 	 				Drops.dropCoinsMethod(100, l, Items.GoldCoin, 2, 9);
 	 			}
+	 			
+	 			// PYRAMID
+	 			if (e.getCustomName().equals(ChatColor.GREEN + "Pyramid Archer")) {
+	 				Drops.dropsMethod(10, l, Items.GoldHelmet, 1);
+	 				Drops.dropsMethod(10, l, Items.GoldChestplate, 1);
+	 				Drops.dropsMethod(33, l, Items.Emerald, 30);
+	 				Drops.dropsMethod(33, l, Items.Sapphire, 15);
+	 				Drops.dropsMethod(33, l, Items.Ruby, 15);
+	 				Drops.dropCoinsMethod(100, l, Items.SilverCoin, 1, 75);	
+	 			}
+	 			if (e.getCustomName().equals(ChatColor.GREEN + "Pyramid Scorpion")) {
+	 				Drops.dropsMethod(33, l, Items.Emerald, 10);
+	 				Drops.dropsMethod(33, l, Items.Ruby, 5);
+	 				Drops.dropsMethod(33, l, Items.Sapphire, 5);
+	 				Drops.dropCoinsMethod(100, l, Items.SilverCoin, 1, 20);
+	 			}
+	 			
+	 			
+	 			
 	 			////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	 		}	 		
 	}

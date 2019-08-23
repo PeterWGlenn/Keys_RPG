@@ -198,7 +198,6 @@ public class Shops {
 		Shops.buyMethod(Items.MithrilPickaxe, Items.sMithrilPickaxe, Val.mPickaxe * Val.mithrilSM, p, e); 
 	}
 	
-	@SuppressWarnings("deprecation")
 	public static void spawnShopsMethod(String name, int x, int y, int z) {
 		
 		Block b = Bukkit.getServer().getWorld("world").getBlockAt(x, y, z);
@@ -206,13 +205,12 @@ public class Shops {
 		Villager v = (Villager) b.getLocation().getWorld().spawn(b.getLocation(), Villager.class);
 		v.setCustomName(ChatColor.BLUE + "" + name);
 		v.setCustomNameVisible(true);
-		v.setMaxHealth(999);
-		v.setHealth(999);
 		v.addPotionEffect(new PotionEffect(PotionEffectType.SLOW,
 		    	99999, 2));
 		v.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION,
 		 		99999, 10));
-
+		v.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE,
+		 		99999, 10));
 		}	
 	
 	public static void spawnShops(Player p, Action a) {

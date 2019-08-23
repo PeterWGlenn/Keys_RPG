@@ -21,7 +21,6 @@ import org.bukkit.util.Vector;
 
 import erestor_.Main;
 
-@SuppressWarnings("deprecation")
 public class Mining {
 	
 	static int unfinishedTasks = 0;
@@ -39,15 +38,15 @@ public class Mining {
 		
 		if(up.getType().equals(Material.AIR) || up.getType().equals(Material.WATER)){ 
 			return up;
-		} else if(north.getType().equals(Material.AIR) || north.getType().equals(Material.WATER) || north.getType().equals(Material.LEGACY_STATIONARY_WATER)) {
+		} else if(north.getType().equals(Material.AIR) || north.getType().equals(Material.WATER)) {
 			return north;
-		} else if(south.getType().equals(Material.AIR) || south.getType().equals(Material.WATER) || south.getType().equals(Material.LEGACY_STATIONARY_WATER)) {
+		} else if(south.getType().equals(Material.AIR) || south.getType().equals(Material.WATER)) {
 			return south;
-		} else if(east.getType().equals(Material.AIR) || east.getType().equals(Material.WATER) || east.getType().equals(Material.LEGACY_STATIONARY_WATER)) {
+		} else if(east.getType().equals(Material.AIR) || east.getType().equals(Material.WATER)) {
 			return east;
-		} else if(west.getType().equals(Material.AIR) || west.getType().equals(Material.WATER) || west.getType().equals(Material.LEGACY_STATIONARY_WATER)) {
+		} else if(west.getType().equals(Material.AIR) || west.getType().equals(Material.WATER)) {
 			return west;
-		} else if(down.getType().equals(Material.AIR) || down.getType().equals(Material.WATER) || down.getType().equals(Material.LEGACY_STATIONARY_WATER)) {
+		} else if(down.getType().equals(Material.AIR) || down.getType().equals(Material.WATER)) {
 			return down;
 		} else {
 			return up;
@@ -67,7 +66,7 @@ public class Mining {
 	            b.setType(secondOre);      
 	            
 	            // Water Spawns
-        	    if(p.getLocation().getBlock().getType().equals(Material.WATER) || p.getLocation().getBlock().getType().equals(Material.LEGACY_STATIONARY_WATER)) {
+        	    if(p.getLocation().getBlock().getType().equals(Material.WATER)) {
         			Spawns.waterSpawns(p, spawnId, spawnChancePercent, spawnMinAmount, spawnMaxAmount);
         		} else {
 	            // Mine Spawns
@@ -156,7 +155,7 @@ public class Mining {
 		}
 		// Sapphire
 		if ( m.equals(Material.IRON_PICKAXE) || o.equals(Material.IRON_PICKAXE) || m.equals(Material.GOLDEN_PICKAXE) || o.equals(Material.GOLDEN_PICKAXE) || m.equals(Material.DIAMOND_PICKAXE) || o.equals(Material.DIAMOND_PICKAXE)){
-		Mining.MineGem(b, p, Material.TERRACOTTA, Material.STONE, Items.Sapphire, 1, 40, 1, 50);
+		Mining.MineGem(b, p, Material.WHITE_TERRACOTTA, Material.STONE, Items.Sapphire, 1, 40, 1, 50);
 		}
 		// Ruby
 		if ( m.equals(Material.IRON_PICKAXE) || o.equals(Material.IRON_PICKAXE) || m.equals(Material.GOLDEN_PICKAXE) || o.equals(Material.GOLDEN_PICKAXE) || m.equals(Material.DIAMOND_PICKAXE) || o.equals(Material.DIAMOND_PICKAXE)){

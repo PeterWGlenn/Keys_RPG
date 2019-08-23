@@ -23,7 +23,6 @@ public class Abilities {
 	static ArrayList<Player> lifeSteal = new ArrayList<Player>();
 	
 	//Use Ability
-	@SuppressWarnings("deprecation")
 	public static void useAbility(Player p, Action a) {
 		if(p.getHealth() > 0) {
 			if(!(p.getInventory().getItemInOffHand().getType().equals(Material.AIR))) {
@@ -119,10 +118,10 @@ public class Abilities {
 			p.sendMessage(ChatColor.AQUA + "You used your " + ChatColor.RESET + "Heal" + ChatColor.AQUA + " ablilty!");
 			double healAmount = dmgMul * 1.5;
 			p.sendMessage(ChatColor.AQUA + "+" + ChatColor.BLUE + healAmount + ChatColor.AQUA + " Health");
-			if(p.getHealth() + healAmount <= p.getMaxHealth()) {
+			if(p.getHealth() + healAmount <= PlayerManager.getMaxHealth(p)) {
 			p.setHealth(p.getHealth() + healAmount);
 			} else {
-			p.setHealth(p.getMaxHealth());
+			p.setHealth(PlayerManager.getMaxHealth(p));
 			}
 			}
 			// Strengthen Armor Ability
@@ -181,15 +180,14 @@ public class Abilities {
 	}
 	
 	// LifeSteal Method
-	@SuppressWarnings("deprecation")
 	public static void lifeStealMethod(Entity a, Entity d, EntityDamageByEntityEvent e) {
 		if(a instanceof Player && lifeSteal.contains(a)) {
 			double damageDealt = e.getDamage();
 			Player p = (Player) a;
-			if(p.getHealth() + (damageDealt * 0.3) <= p.getMaxHealth()) {
+			if(p.getHealth() + (damageDealt * 0.3) <= PlayerManager.getMaxHealth(p)) {
 			p.setHealth(p.getHealth() + (damageDealt * 0.3));
 			} else {
-			p.setHealth(p.getMaxHealth());
+			p.setHealth(PlayerManager.getMaxHealth(p));
 			}
 			p.sendMessage(ChatColor.GREEN + "+" + (damageDealt * 0.3) + " Health");
 		}

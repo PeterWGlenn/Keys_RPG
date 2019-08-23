@@ -172,7 +172,6 @@ public class Enchanting {
 			}
 			}
 			
-		p.updateInventory();
 		} else {
 			p.sendMessage(ChatColor.RED + "You must be holding either a weapon or a piece of armor to enchant it!");
 		}

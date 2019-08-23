@@ -10,6 +10,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.HumanEntity;
@@ -92,7 +93,6 @@ public class PlayerManager {
 	}
 	
 	//////////////////////////////////////////////////////////// P L A Y E R  R E S E T /////////////////////////////////////////////////////////////
-	@SuppressWarnings("deprecation")
 	public static void resetPlayer(Player p) {
 		
 		PlayerInventory inv = p.getInventory();
@@ -115,16 +115,16 @@ public class PlayerManager {
 		
 		p.getEnderChest().clear();
 		
-			p.setMaxHealth(40);
+			PlayerManager.setMaxHealth(p, 40);
 			p.setHealth(40);
 			p.setSaturation(20);
 			p.setFoodLevel(20);
 			
-			Groups.guardiansOfAncra.removePlayer(p);
-			Groups.leagueOfHunters.removePlayer(p);
-			Groups.minersFoundry.removePlayer(p);
-			Groups.mageSociety.removePlayer(p);
-			Groups.eastcliffGladiators.removePlayer(p);
+			Groups.guardiansOfAncra.removeEntry(p.getName());
+			Groups.leagueOfHunters.removeEntry(p.getName());
+			Groups.minersFoundry.removeEntry(p.getName());
+			Groups.mageSociety.removeEntry(p.getName());
+			Groups.eastcliffGladiators.removeEntry(p.getName());
 			
 			inv.setItem(17, Items.createGroupItem("NONE", ChatColor.WHITE, "NONE", "NONE"));
 			inv.setItem(26, Items.createManaItem("0"));
@@ -325,7 +325,6 @@ public class PlayerManager {
 	    contained.remove(p.getName());
 	}
 	// Release
-	@SuppressWarnings("deprecation")
 	public static void releaseAll() {
 		
 		for (int i = 0; i < PlayerManager.contained.size(); i++) {
@@ -627,4 +626,29 @@ public class PlayerManager {
 			}
 		} 
 	}
+	
+	// Get player max health
+	public static double getMaxHealth(Player p) {
+		return p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue();
+	}
+	
+	// Set player max health
+	public static void setMaxHealth(Player p, double health) {
+		AttributeInstance healthAttribute = p.getAttribute(Attribute.GENERIC_MAX_HEALTH);
+		healthAttribute.setBaseValue(health);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

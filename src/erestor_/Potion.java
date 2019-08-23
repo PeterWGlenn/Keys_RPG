@@ -9,7 +9,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
 
-@SuppressWarnings("deprecation")
 public class Potion {
 
 	public static void drinkPotion(Player p, PlayerItemConsumeEvent e) {
@@ -33,7 +32,7 @@ public class Potion {
 			// If bottle
 			if(p.getInventory().getItemInMainHand().getType().equals(Material.GLASS_BOTTLE)) {
 				// If in water
-				if(p.getLocation().getBlock().getType().equals(Material.WATER) || p.getLocation().getBlock().getType().equals(Material.LEGACY_STATIONARY_WATER)) {
+				if(p.getLocation().getBlock().getType().equals(Material.WATER) || p.getLocation().getBlock().getType().equals(Material.WATER)) {
 					p.getInventory().removeItem(Items.EmptyBottle);
 					p.getInventory().addItem(Items.WaterBottle);
 				}

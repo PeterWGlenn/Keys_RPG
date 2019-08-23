@@ -40,7 +40,6 @@ public class Main extends JavaPlugin {
 	}
 	
 	// COMMANDS
-	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 	    	Player player = (Player) sender;
 	        if (cmd.getName().equalsIgnoreCase("s") && sender instanceof Player || cmd.getName().equalsIgnoreCase("smelt") && sender instanceof Player || cmd.getName().equalsIgnoreCase("furnace") && sender instanceof Player) {

@@ -257,13 +257,13 @@ public class Spawns {
  	 	int trueI = i.nextInt(100 - 1 + 1) + 1;
  	 	if(trueI <= percent) {
  	 		
- 	 	int radius = 10;
- 		   Random rand = new Random();
+ 	 		int radius = 10;
  		   boolean found = false;
  		   int timesTried = 0;
  		   
  		   while (!found) {
- 		   Location landBlock = p.getLocation().clone().add(rand.nextInt(radius * 2) - radius, 0, rand.nextInt(radius * 2) - radius);
+ 			  Random rand = new Random();
+ 		   Location landBlock = p.getLocation().clone().add(rand.nextInt(radius * 2) - radius, -1, rand.nextInt(radius * 2) - radius);
  		   Location airBlock1 = new Location(Bukkit.getServer().getWorld("world"), landBlock.getX(), landBlock.getY() + 1, landBlock.getZ());
  		   
  		   Material lBType = landBlock.getBlock().getType();
@@ -279,18 +279,16 @@ public class Spawns {
  		   if(lBType != Material.AIR && aB1Type == Material.AIR && (landBlock.getY() - p.getLocation().getY() < 5)) {
  	       found = true;
  	       
- 	       // Gloomwood spawns
+ 	       // Desert Spawns
  	       if(id == 1) {
  	    	  if(!airBlock1.getBlock().getBiome().equals(Biome.DESERT)) {
  	    	  Spawns.spawnSpiderFromLocMethod(airBlock1.add(+0.5, +0, +0.5), ChatColor.GREEN + "Forest Spider", 15, PotionEffectType.SPEED, 1, PotionEffectType.INCREASE_DAMAGE, 0);
  	    	  } else {
  	    	  Random randS = new Random();
  	     	  int truerandS = randS.nextInt(100 - 1 + 1) + 1;
- 	     	  if(truerandS >= 90) {
- 	          Spawns.spawnSkeletonFromLocMethod(airBlock1, ChatColor.GREEN + "Undead Archer", 200, Items.undeadArcherBow, Items.WoodHelmet, Items.IronChestplate, Items.IronLeggings, Items.GoldBoots, 1, 0, 0, 3);   	 
- 	     	  }
- 	     	  for (int sInt = 0; sInt < (int)(truerandS/20); sInt++) {
- 	          Spawns.spawnSilverfishFromLocMethod(airBlock1, ChatColor.GREEN + "Silverfish", 50, 1, 0, 2, 4);
+ 	     	  if(truerandS <= 17) {
+ 	          Spawns.spawnSkeletonFromLocMethod(airBlock1, ChatColor.GREEN + "Undead Archer", 40, Items.undeadArcherBow, Items.IronHelmet, Items.IronChestplate, Items.MithrilLeggings, Items.MithrilBoots, 1, 0, 0, 3);   	 
+ 	          Spawns.spawnSilverfishFromLocMethod(airBlock1, ChatColor.GREEN + "Undead Scorpion", 20, 0, 1, 2, 3);
  	    	  }
  	    	  }
  	       }
@@ -383,12 +381,12 @@ public class Spawns {
  	    for (int n = 0; n < trueA; n++) {
  	    	
  			int radius = 15;
- 			Random rand = new Random();
  			boolean found = false;
  			int timesTried = 0;
 
  			while (!found) {
- 				Location baseBlock = p.getLocation().clone().add(rand.nextInt(radius * 2) - radius, 0, rand.nextInt(radius * 2) - radius);
+ 				Random rand = new Random();
+ 				Location baseBlock = p.getLocation().clone().add(rand.nextInt(radius * 2) - radius, -1, rand.nextInt(radius * 2) - radius);
  				Location topBlock = baseBlock.getBlock().getRelative(BlockFace.UP).getLocation();
 
  				Material bBType = baseBlock.getBlock().getType();
@@ -400,12 +398,13 @@ public class Spawns {
  					found = true;
  				}
 
- 				if((!(bBType == Material.SAND) && !(bBType == Material.AIR) && !(bBType == Material.RED_SANDSTONE) && !(bBType == Material.RED_SANDSTONE_STAIRS)) && tBType == Material.AIR) {
+ 				if(bBType == Material.GRANITE && tBType == Material.AIR) {
  					found = true;
 
  					// Spawns
  					if(id == "pyramid") {
- 						Spawns.spawnSkeletonFromLocMethod(topBlock, ChatColor.GREEN + "Undead Archer", 20, Items.undeadArcherBow, Items.WoodHelmet, Items.IronChestplate, Items.IronLeggings, Items.GoldBoots, 1, 0, 0, 3);   	 
+ 						Spawns.spawnSkeletonFromLocMethod(topBlock, ChatColor.GREEN + "Pyramid Archer", 70, Items.undeadArcherBow, Items.GoldHelmet, Items.GoldChestplate, Items.AdamantiteLeggings, Items.AdamantiteBoots, 1, 1, 0, 3);   	 
+ 						Spawns.spawnSilverfishFromLocMethod(topBlock, ChatColor.GREEN + "Pyramid Scorpion", 40, 0, 1, 2, 3);
  					}
  				}
  				}
